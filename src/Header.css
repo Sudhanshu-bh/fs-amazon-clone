@@ -19,6 +19,7 @@
   display: flex;
   flex: 1;
   align-items: center;
+  margin-right: 0.8rem;
   border-radius: 4px;
 }
 
@@ -58,24 +59,46 @@
   font-weight: 800;
 }
 
-.header__optionBasket {
+a.header__optionBasket {
+  /* padding: 0.3rem 0.4rem;
+  margin: 0 1rem; */
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-decoration: none;
+}
+
+div.header__optionBasketVisual {
+  display: flex;
+  flex-direction: column-reverse;
   align-items: center;
   color: white;
 }
 
 .header__basketCount {
+  color: #febd69;
   margin: 0 10px;
+  z-index: 1;
 }
 
 .header__nav {
   display: flex;
+  align-items: center;
   justify-content: space-evenly;
 }
 
 .header__option {
+  height: 2.3rem;
   display: flex;
   flex-direction: column;
-  margin: 0 10px;
+  justify-content: center;
+  padding: 0.3rem 0.6rem;
+  margin: 0 1px;
+  border: 1px solid #131921;
   color: white;
+}
+
+.header__option:hover {
+  border: 1px solid white;
+  border-radius: 2px;
 }

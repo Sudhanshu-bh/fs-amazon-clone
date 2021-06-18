@@ -2,12 +2,12 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import './Header.css'
 import SearchIcon from '@material-ui/icons/Search';
-import ShoppingBasket from '@material-ui/icons/ShoppingBasket';
+import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 
 function Header() {
   return (
     <div className="header">
-      <Link to="">
+      <Link to="/">
         <img
           className="header__logo"
           src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
@@ -39,10 +39,13 @@ function Header() {
           <span className="header__optionLineTwo">Prime</span>
         </div>
 
-        <div className="header__optionBasket">
-          <ShoppingBasket />
-          <span className="header__optionLineTwo header__basketCount">0</span>
-        </div>
+        <Link to="/checkout" className="header__optionBasket header__option">
+          <div className="header__optionBasketVisual">
+            <ShoppingCartOutlinedIcon className="header__cartIcon" />
+            <span className="header__optionLineTwo header__basketCount">0</span>
+          </div>
+          <span>&nbsp;Cart</span>
+        </Link>
 
       </div>
 

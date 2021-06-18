@@ -1,0 +1,25 @@
+.checkout {
+  display: flex;
+  padding: 20px;
+  background-color: white;
+  height: max-content;
+}
+
+.checkout__ad {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.checkout__title {
+  margin-right: 10px;
+  padding: 10px;
+  border-bottom: 1px solid lightgray;
+}
+
+.cart-logo {
+  height: 45px;
+  width: 45px;
+  background-position: 0 1000px;
+    background-repeat: repeat-x;
+  background: url("https://images-na.ssl-images-amazon.com/images/G/01/gno/sprites/nav-sprite-global-1x-hm-dsk-reorg._CB405937547_.png")
+}

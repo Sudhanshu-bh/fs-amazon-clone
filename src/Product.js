@@ -24,7 +24,7 @@ function Product({ title, image, price, rating }) {
         alt="Product"
       />
 
-      <button>Add to Basket</button>
+      <button className="am-yellow-button">Add to Cart</button>
     </div>
   )
 }
