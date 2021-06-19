@@ -15,10 +15,10 @@ function Home() {
         <div className="home__row">
           <Product
             id="51432687"
-            title="The lean startup"
+            title="Rich Dad Poor Dad: What the Rich Teach Their Kids About Money That the Poor and Middle Class Do Not!"
             price={29.99}
             rating={3}
-            image="https://images-na.ssl-images-amazon.com/images/I/51Zymoq7UnL._AC_SY400_.jpg"
+            image="https://images-na.ssl-images-amazon.com/images/I/51u8ZRDCVoL._SX330_BO1,204,203,200_.jpg"
           />
           <Product
             id="32759658"
@@ -34,7 +34,7 @@ function Home() {
             id="62415253"
             title="Amazon Echo (3rd generation) | Smart speaker with Alexa, Charcoal Fabric"
             price={60.98}
-            rating={4}
+            rating={3}
             image="https://images-na.ssl-images-amazon.com/images/I/61EXU8BuGZL._SL1100_.jpg"
           // image="https://media.very.co.uk/i/very/P6LTG_SQ1_0000000071_CHARCOAL_SLf?$300*400_retinamobilex2$"
           />

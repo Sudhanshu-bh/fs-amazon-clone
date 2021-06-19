@@ -1,25 +1,40 @@
 .checkout {
   display: flex;
   padding: 20px;
-  background-color: white;
   height: max-content;
 }
 
 .checkout__ad {
   width: 100%;
-  margin-bottom: 10px;
+}
+
+.checkout__cartBox {
+  margin-top: 20px;
+  padding: 1.4rem;
+  background-color: white;
+}
+
+.checkout__left {
+  margin-right: 20px;
 }
 
 .checkout__title {
-  margin-right: 10px;
-  padding: 10px;
+  font-weight: 400;
   border-bottom: 1px solid lightgray;
 }
 
-.cart-logo {
-  height: 45px;
-  width: 45px;
-  background-position: 0 1000px;
-    background-repeat: repeat-x;
-  background: url("https://images-na.ssl-images-amazon.com/images/G/01/gno/sprites/nav-sprite-global-1x-hm-dsk-reorg._CB405937547_.png")
+.checkout__priceTag {
+  text-align: right;
+  color: #565959;
+  padding-bottom: 2px;
+}
+
+.checkout__leftSubtotal {
+  text-align: right;
+  padding: 0.5rem 0;
+  font-size: 1.2rem;
+}
+
+.checkout__leftSubtotal small {
+  font-size: 0.8rem;
 }
