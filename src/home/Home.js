@@ -1,8 +1,8 @@
 import React from 'react'
 import './Home.css'
 import Product from './Product'
-import Footer from './reusable/Footer'
-import Header from './reusable/Header'
+import Footer from '../reusable/Footer'
+import Header from '../reusable/Header'
 
 function Home() {
   return (

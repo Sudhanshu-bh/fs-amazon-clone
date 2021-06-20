@@ -1,8 +1,8 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import './App.css';
-import Home from './Home'
-import Checkout from './Checkout';
-import Login from './Login';
+import Home from './home/Home'
+import Checkout from './checkout/Checkout';
+import Login from './login/Login';
 
 function App() {
   return (

@@ -1,7 +1,7 @@
 import React from 'react'
 import './Subtotal.css'
-import { useStateValue } from './StateProvider'
-import { getCartTotal } from './reducer'
+import { useStateValue } from '../StateProvider'
+import { getCartTotal } from '../reducer'
 
 function Subtotal() {
 

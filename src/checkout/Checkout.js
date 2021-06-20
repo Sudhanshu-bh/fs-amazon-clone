@@ -2,10 +2,10 @@ import React from 'react'
 import './Checkout.css'
 import CartItem from './CartItem'
 import Subtotal from './Subtotal'
-import { useStateValue } from './StateProvider'
-import { getCartTotal } from './reducer'
-import Header from './reusable/Header'
-import Footer from './reusable/Footer'
+import { useStateValue } from '../StateProvider'
+import { getCartTotal } from '../reducer'
+import Header from '../reusable/Header'
+import Footer from '../reusable/Footer'
 
 function Checkout() {
   const [{ cart }, dispatch] = useStateValue()

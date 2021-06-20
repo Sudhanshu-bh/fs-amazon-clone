@@ -1,6 +1,6 @@
 import React from 'react'
 import './CartItem.css'
-import { useStateValue } from './StateProvider'
+import { useStateValue } from '../StateProvider'
 
 function CartItem({ id, title, image, price, rating }) {
 
