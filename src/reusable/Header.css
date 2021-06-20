@@ -8,6 +8,10 @@
   z-index: 50;
 }
 
+.header a {
+  text-decoration: none;
+}
+
 .header__logo {
   width: 6.3rem;
   object-fit: contain;
@@ -60,12 +64,9 @@
 }
 
 a.header__optionBasket {
-  /* padding: 0.3rem 0.4rem;
-  margin: 0 1rem; */
   display: flex;
   flex-direction: row;
   align-items: center;
-  text-decoration: none;
 }
 
 div.header__optionBasketVisual {

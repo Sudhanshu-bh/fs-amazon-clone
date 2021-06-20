@@ -1,4 +1,23 @@
 .footer {
+  text-align: center;
+}
+
+.footer__backToTop {
+  background-color: #37475A;
+  padding: 1rem;
+  color: white;
+  cursor: pointer;
+}
+
+.footer__backToTop:hover {
+  background-color: #485769;
+}
+
+.footer__main {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 4rem;
   background-color: #131921;
   color: white;
   padding: 1.1rem;
