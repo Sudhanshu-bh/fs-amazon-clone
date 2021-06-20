@@ -1,7 +1,18 @@
 import React from 'react'
 import './CartItem.css'
+import { useStateValue } from './StateProvider'
 
 function CartItem({ id, title, image, price, rating }) {
+
+  const [{ cart }, dispatch] = useStateValue();
+
+  const removeFromCart = () => {
+    dispatch({
+      type: 'REMOVE_FROM_CART',
+      id: id,
+    })
+  }
+
   return (
     <div className="cartItem">
       <img
@@ -26,12 +37,16 @@ function CartItem({ id, title, image, price, rating }) {
           <small>&nbsp; This will be a gift</small>
         </div>
 
-        <button className="am-yellow-button cartItem__deleteButton">Remove from Cart</button>
+        <button
+          className="am-yellow-button cartItem__deleteButton"
+          onClick={removeFromCart}>
+          Remove from Cart
+        </button>
       </div>
 
       <div className="cartItem__right">
         <p>
-          <small>$</small>
+          <small>₹</small>
           <strong>{price}</strong>
         </p>
       </div>

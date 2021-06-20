@@ -11,7 +11,7 @@ function Subtotal() {
     <div className="subtotal">
       <p>
         Subtotal ({cart.length} items):
-        <small> $</small>
+        <small> ₹</small>
         <strong>{getCartTotal(cart)}</strong>
       </p>
       <small className="subtotal__gift">

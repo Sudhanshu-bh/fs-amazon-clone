@@ -38,7 +38,7 @@ function Checkout() {
 
           <div className="checkout__leftSubtotal">
             Subtotal ({cart.length} items):
-            <small> $</small>
+            <small> ₹</small>
             <strong>{getCartTotal(cart)}</strong>
           </div>
 
