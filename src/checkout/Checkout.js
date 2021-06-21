@@ -6,13 +6,13 @@ import { useStateValue } from '../StateProvider'
 import { getCartTotal } from '../reducer'
 import Header from '../reusable/Header'
 import Footer from '../reusable/Footer'
+import CurrFormat from '../CurrFormat'
 
 function Checkout() {
-  const [{ cart }, dispatch] = useStateValue()
+  const [{ cart, user }] = useStateValue()
 
   return (
     <>
-
       <Header />
 
       <div className="checkout lightgray-bg">
@@ -26,6 +26,7 @@ function Checkout() {
 
           <div className="checkout__cartBox">
             <div className="checkout__title">
+              <h2>{user?.email}</h2>
               <h1>Shopping Cart</h1>
               <div className="checkout__priceTag">
                 <small>Price</small>
@@ -45,7 +46,9 @@ function Checkout() {
             <div className="checkout__leftSubtotal">
               Subtotal ({cart.length} items):
               <small> ₹</small>
-              <strong>{getCartTotal(cart)}</strong>
+              <strong>
+                <CurrFormat price={getCartTotal(cart)} />
+              </strong>
             </div>
 
           </div>

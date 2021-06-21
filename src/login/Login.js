@@ -1,8 +1,40 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState } from 'react'
 import './Login.css'
+import { Link, useHistory } from 'react-router-dom'
+import { auth } from '../firebase'
 
 function Login() {
+
+  const history = useHistory()
+  const [email, setemail] = useState("")
+  const [password, setpassword] = useState("")
+
+  const signIn = e => {
+
+    e.preventDefault()
+
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then(auth => {
+        history.push("/")
+      })
+      .catch(error => alert(error.message))
+  }
+
+  const register = e => {
+    e.preventDefault()
+
+    auth
+      .createUserWithEmailAndPassword(email, password)
+      .then((auth) => {
+        console.log(auth)
+        if (auth) {
+          history.push("/")
+        }
+      })
+      .catch(error => alert(error.message))
+  }
+
   return (
     <div className='login'>
       <Link to="/">
@@ -20,17 +52,32 @@ function Login() {
 
           <form action="">
             <h5>Email</h5>
-            <input type="email" maxLength="120" />
+            <input
+              type="email"
+              onChange={e => setemail(e.target.value)}
+              value={email}
+              maxLength="100"
+            />
 
             <h5>Password</h5>
-            <input type="password" />
+            <input
+              type="password"
+              onChange={e => setpassword(e.target.value)}
+              value={password}
+              maxLength="40"
+            />
 
-            <button className="am-orange-button login__signInButton">Sign In</button>
+            <button
+              className="am-orange-button login__signInButton"
+              type="submit"
+              onClick={signIn}>
+              Sign In
+            </button>
           </form>
 
           <p className="login__privacy">
             <small>
-              By continuing, you agree to Amazon's FAKE CLONE's <a href="#">Conditions of Use</a> and <a href="#">Privacy Notice</a>.
+              By continuing, you agree to Amazon's FAKE CLONE's <Link to="#">Conditions of Use</Link> and <Link to="#">Privacy Notice</Link>.
             </small>
           </p>
         </div>
@@ -38,7 +85,11 @@ function Login() {
         <div className="login__smallTextContainer">
           <div className="login__smallText">New to Amazon?</div>
         </div>
-        <button className="am-button login__registerButton">Create your Amazon account</button>
+        <button
+          className="am-button login__registerButton"
+          onClick={register}>
+          Create your Amazon account
+        </button>
 
       </div>
 

@@ -1,15 +1,14 @@
 import React from 'react';
 import './Product.css';
 import { useStateValue } from '../StateProvider';
+import CurrFormat from '../CurrFormat';
 
 function Product({ id, title, image, price, rating }) {
 
+  // eslint-disable-next-line
   const [{ cart }, dispatch] = useStateValue();
 
-  console.log("this is the cart >>> ", cart);
-
   const addToCart = () => {
-    // dispatch
     dispatch({
       type: 'ADD_TO_CART',
       item: {
@@ -28,12 +27,14 @@ function Product({ id, title, image, price, rating }) {
         <p>{title}</p>
         <p className="product__price">
           <small>₹</small>
-          <strong>{price}</strong>
+          <strong>
+            <CurrFormat price={price} />
+          </strong>
         </p>
         <div className="product__rating">
           {Array(rating)
             .fill()
-            .map(() => (
+            .map((_, key) => (
               <p>⭐</p>
             ))}
         </div>

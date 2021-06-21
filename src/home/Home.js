@@ -62,10 +62,10 @@ function Home() {
           <div className="home__row">
             <Product
               id="47521952"
-              title="SAMSUNG 34-Inch Odyssey G5 Ultra-Wide Gaming Monitor with 1000R Curved Screen, 165Hz, 1ms, FreeSync Premium, WQHD (LC34G55TWWNXZA, 2020 Model), Black"
-              price={74999}
+              title='Acer EI491CR Pbmiiipx 49" Curved DFHD (3840 x 1080) VA Monitor with AMD Radeon FreeSync2 Technology ,144Hz, VESA Certified DisplayHDR400, DCI-P3,Black'
+              price={123799}
               rating={5}
-              image="https://images-na.ssl-images-amazon.com/images/I/61XDeaOrrKL._AC_SL1000_.jpg"
+              image="https://images-na.ssl-images-amazon.com/images/I/71IuwPZBKnL._AC_SL1500_.jpg"
             />
           </div>
 

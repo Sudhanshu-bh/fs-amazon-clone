@@ -2,6 +2,7 @@ import React from 'react'
 import './Subtotal.css'
 import { useStateValue } from '../StateProvider'
 import { getCartTotal } from '../reducer'
+import CurrFormat from '../CurrFormat'
 
 function Subtotal() {
 
@@ -12,7 +13,9 @@ function Subtotal() {
       <p>
         Subtotal ({cart.length} items):
         <small> ₹</small>
-        <strong>{getCartTotal(cart)}</strong>
+        <strong>
+          <CurrFormat price={getCartTotal(cart)} />
+        </strong>
       </p>
       <small className="subtotal__gift">
         <input type="checkbox" /> This order contains a gift

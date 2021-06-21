@@ -4,9 +4,16 @@ import './Header.css'
 import SearchIcon from '@material-ui/icons/Search';
 import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import { useStateValue } from '../StateProvider';
+import { auth } from '../firebase';
 
 function Header() {
-  const [{ cart }] = useStateValue();
+  const [{ cart, user }] = useStateValue()
+
+  const handleAuth = () => {
+    if (user) {
+      auth.signOut();
+    }
+  }
 
   return (
     <div className="header">
@@ -27,10 +34,14 @@ function Header() {
 
       <div className="header__nav">
 
-        <Link to="/login">
-          <div className="header__option">
+        <Link to={!user && "/login"}>
+          <div
+          className="header__option"
+          onClick={handleAuth}>
             <span className="header__optionLineOne">Hello Guest</span>
-            <span className="header__optionLineTwo">Sign In</span>
+            <span className="header__optionLineTwo">
+              {user ? "Sign Out" : "Sign In"}
+            </span>
           </div>
         </Link>
 

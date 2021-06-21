@@ -1,10 +1,11 @@
 import React from 'react'
 import './CartItem.css'
 import { useStateValue } from '../StateProvider'
+import CurrFormat from '../CurrFormat';
 
 function CartItem({ id, title, image, price, rating }) {
 
-  const [{ cart }, dispatch] = useStateValue();
+  const [dispatch] = useStateValue();
 
   const removeFromCart = () => {
     dispatch({
@@ -47,7 +48,9 @@ function CartItem({ id, title, image, price, rating }) {
       <div className="cartItem__right">
         <p>
           <small>₹</small>
-          <strong>{price}</strong>
+          <strong>
+            <CurrFormat price={price} />
+          </strong>
         </p>
       </div>
     </div>
