@@ -5,7 +5,8 @@ import CurrFormat from '../CurrFormat';
 
 function CartItem({ id, title, image, price, rating }) {
 
-  const [dispatch] = useStateValue();
+  // eslint-disable-next-line
+  const [{ cart }, dispatch] = useStateValue();
 
   const removeFromCart = () => {
     dispatch({
