@@ -12,13 +12,14 @@ import axios from '../axios'
 
 function Payment() {
   const history = useHistory()
-  const [{ cart, user }] = useStateValue()
+  // eslint-disable-next-line
+  const [{ cart, user }, dispatch] = useStateValue()
 
   const stripe = useStripe()
   const elements = useElements()
 
   const [succeeded, setsucceeded] = useState(false)
-  const [processing, setprocessing] = useState(false)
+  const [processing, setprocessing] = useState("")
   const [error, seterror] = useState(null)
   const [disabled, setdisabled] = useState(true)
 
@@ -35,8 +36,11 @@ function Payment() {
       setclientSecret(response.data.clientSecret)
     }
 
-    getClientSecret()
+    if (getCartTotal(cart) > 0)
+      getClientSecret()
   }, [cart])
+
+  console.log('The secret is: ', clientSecret)
 
   const handleSubmit = async (event) => {
     // do fancy stripe stuff
