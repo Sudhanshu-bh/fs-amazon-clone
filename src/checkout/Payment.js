@@ -1,13 +1,67 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { Link, useHistory } from 'react-router-dom'
 import './Payment.css'
 import Footer from '../reusable/Footer'
 import Header from '../reusable/Header'
 import { useStateValue } from '../StateProvider'
 import CartItem from './CartItem'
+import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
+import { getCartTotal } from '../reducer'
+import CurrFormat from '../CurrFormat'
+import axios from '../axios'
 
 function Payment() {
+  const history = useHistory()
   const [{ cart, user }] = useStateValue()
+
+  const stripe = useStripe()
+  const elements = useElements()
+
+  const [succeeded, setsucceeded] = useState(false)
+  const [processing, setprocessing] = useState(false)
+  const [error, seterror] = useState(null)
+  const [disabled, setdisabled] = useState(true)
+
+  const [clientSecret, setclientSecret] = useState(true)
+
+  useEffect(() => {
+    // generate the special stripe secret which allows us to charge a customer
+    const getClientSecret = async () => {
+      const response = await axios({
+        method: 'post',
+        // Note: Stripe expects the total in a currency's subunits!
+        url: `/payments/create?total=${getCartTotal(cart) * 100}`
+      })
+      setclientSecret(response.data.clientSecret)
+    }
+
+    getClientSecret()
+  }, [cart])
+
+  const handleSubmit = async (event) => {
+    // do fancy stripe stuff
+    event.preventDefault()
+    setprocessing(true)
+
+    const payload = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: elements.getElement(CardElement)
+      }
+    }).then(({ paymentIntent }) => {
+      // paymentIntent = payment confirmation
+
+      setsucceeded(true)
+      seterror(null)
+      setprocessing(false)
+
+      history.replace('/orders')
+    })
+  }
+
+  const handleChange = e => {
+    setdisabled(e.empty)
+    seterror(e.error ? e.error.message : "")
+  }
 
   return (
     <>
@@ -50,7 +104,26 @@ function Payment() {
           <div className="payment__section">
             <h3 className="payment__title">Payment Method</h3>
             <div className="payment__details">
-              {/* Stripe payment will go here */}
+
+              <form onSubmit={handleSubmit}>
+                <CardElement onChange={handleChange} />
+
+                <div className="payment__priceContainer">
+                  <h3>
+                    Order Total:
+                    <small> ₹</small>
+                    <CurrFormat price={getCartTotal(cart)} />
+                  </h3>
+                  <button
+                    className="am-button"
+                    disabled={processing || disabled || succeeded}>
+                    {processing ? "Processing" : "Buy Now"}
+                  </button>
+                </div>
+
+                {error && <div>{error}</div>}
+              </form>
+
             </div>
           </div>
         </div>

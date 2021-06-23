@@ -7,6 +7,7 @@
   border-color: #adb1b8 #a2a6ac #8d9096;
   border-style: solid;
   border-width: 1px;
+  padding: 0 0.8rem;
   background: #eff0f3;
   background: -webkit-linear-gradient(top,#f7f8fa,#e7e9ec);
   background: linear-gradient(to bottom,#f7f8fa,#e7e9ec);
@@ -20,6 +21,12 @@
   background: #e0e3e8;
   background: -webkit-linear-gradient(top,#e7eaf0,#d9dce1);
   background: linear-gradient(to bottom,#e7eaf0,#d9dce1);
+}
+
+.am-button:disabled {
+  background: #eff0f3;
+  background: -webkit-linear-gradient(top,#f7f8fa,#e7e9ec);
+  background: linear-gradient(to bottom,#f7f8fa,#e7e9ec);
 }
 
 .am-yellow-button {
@@ -58,4 +65,10 @@
   background: -webkit-linear-gradient(top,#f5d78e,#eeb933);
   background: linear-gradient(to bottom,#f5d78e,#eeb933);
   border-color: #a88734 #9c7e31 #846a29;
+}
+
+.am-orange-button:disabled {
+  background: #f3d078;
+  background: -webkit-linear-gradient(top,#f7dfa5,#f0c14b);
+  background: linear-gradient(to bottom,#f7dfa5,#f0c14b);
 }
