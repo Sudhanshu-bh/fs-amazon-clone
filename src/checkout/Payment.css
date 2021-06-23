@@ -1,0 +1,21 @@
+.payment {
+  padding: 1rem;
+}
+
+.payment__section {
+  background: white;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.payment__pageTitle {
+  text-align: center;
+  padding-bottom: 1rem;
+  font-weight: 400;
+  
+}
+
+.payment__pageTitle a {
+  color: #0066c0;
+  text-decoration: none;
+}

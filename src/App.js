@@ -1,16 +1,17 @@
 import { useEffect } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import './App.css';
+import { auth } from './firebase';
+import { useStateValue } from './StateProvider';
 import Home from './home/Home'
 import Checkout from './checkout/Checkout';
 import Login from './login/Login';
-import { auth } from './firebase';
-import { useStateValue } from './StateProvider';
+import Payment from './checkout/Payment';
 
 function App() {
 
   // eslint-disable-next-line
-  const [{ cart, user}, dispatch] = useStateValue()
+  const [{ cart, user }, dispatch] = useStateValue()
 
   useEffect(() => {
     auth.onAuthStateChanged(authUser => {
@@ -28,7 +29,7 @@ function App() {
         })
       }
     })
-  // eslint-disable-next-line
+    // eslint-disable-next-line
   }, [])
   return (
     <BrowserRouter>
@@ -41,6 +42,10 @@ function App() {
 
           <Route path="/checkout">
             <Checkout />
+          </Route>
+
+          <Route path="/payment">
+            <Payment />
           </Route>
 
           <Route path="/">

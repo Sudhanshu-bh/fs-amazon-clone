@@ -27,6 +27,7 @@
   border: 1px solid #FCD200;
   margin-top: 10px;
   padding: 0.3rem 0.6rem;
+  cursor: pointer;
   border-radius: 5px;
   box-shadow: 0 2px 5px 0 rgb(213 217 217 / 50%);
 }
@@ -34,6 +35,11 @@
 .am-yellow-button:hover {
   background: #F7CA00;
   border-color: #F2C200;
+}
+
+.am-yellow-button:disabled {
+  background: #F7CA00;
+  cursor: auto;
 }
 
 .am-orange-button {
