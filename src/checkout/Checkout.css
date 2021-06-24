@@ -10,7 +10,8 @@
 
 .checkout__cartBox {
   margin-top: 20px;
-  padding: 1.4rem;
+  padding: 1.3rem;
+  padding-bottom: 1rem;
   background-color: white;
 }
 
@@ -31,7 +32,7 @@
 
 .checkout__leftSubtotal {
   text-align: right;
-  padding: 0.5rem 0;
+  padding-top: 0.8rem;
   font-size: 1.2rem;
 }
 

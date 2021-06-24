@@ -9,10 +9,11 @@ import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js'
 import { getCartTotal } from '../reducer'
 import CurrFormat from '../CurrFormat'
 import axios from '../axios'
+import { db } from '../firebase'
 
 function Payment() {
   const history = useHistory()
-  // eslint-disable-next-line
+
   const [{ cart, user }, dispatch] = useStateValue()
 
   const stripe = useStripe()
@@ -40,8 +41,6 @@ function Payment() {
       getClientSecret()
   }, [cart])
 
-  console.log('The secret is: ', clientSecret)
-
   const handleSubmit = async (event) => {
     // do fancy stripe stuff
     event.preventDefault()
@@ -54,10 +53,24 @@ function Payment() {
     }).then(({ paymentIntent }) => {
       // paymentIntent = payment confirmation
 
+      db
+        .collection('users')
+        .doc(user?.uid)
+        .collection('orders')
+        .doc(paymentIntent.id)
+        .set({
+          cart: cart,
+          amount: paymentIntent.amount,
+          created: paymentIntent.created,
+        })
+
       setsucceeded(true)
       seterror(null)
       setprocessing(false)
 
+      dispatch({
+        type: 'EMPTY_CART'
+      })
       history.replace('/orders')
     })
   }

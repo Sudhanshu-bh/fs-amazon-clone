@@ -26,7 +26,6 @@ function Checkout() {
 
           <div className="checkout__cartBox">
             <div className="checkout__title">
-              <h2>{user?.email}</h2>
               <h1>Shopping Cart</h1>
               <div className="checkout__priceTag">
                 <small>Price</small>

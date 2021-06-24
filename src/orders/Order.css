@@ -1,0 +1,13 @@
+.order__id {
+  font-weight: 400;
+}
+
+.order__date {
+  padding-bottom: 1rem;
+  border-bottom: 1px solid lightgray;
+}
+
+.order__total {
+  margin-top: 1rem;
+  text-align: end;
+}
