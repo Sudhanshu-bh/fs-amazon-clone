@@ -3,7 +3,7 @@ import './CartItem.css'
 import { useStateValue } from '../StateProvider'
 import CurrFormat from '../CurrFormat';
 
-function CartItem({ id, title, image, price, rating }) {
+function CartItem({ id, title, image, price, rating, hideButtons }) {
 
   // eslint-disable-next-line
   const [{ cart }, dispatch] = useStateValue();
@@ -34,16 +34,20 @@ function CartItem({ id, title, image, price, rating }) {
           }
         </div>
 
-        <div className="cartItem__giftOption">
-          <input type="checkbox" />
-          <small>&nbsp; This will be a gift</small>
-        </div>
+        {!hideButtons && (
+          <>
+            <div className="cartItem__giftOption">
+              <input type="checkbox" />
+              <small>&nbsp; This will be a gift</small>
+            </div>
 
-        <button
-          className="am-yellow-button cartItem__deleteButton"
-          onClick={removeFromCart}>
-          Remove from Cart
-        </button>
+            <button
+              className="am-yellow-button cartItem__deleteButton"
+              onClick={removeFromCart}>
+              Remove from Cart
+            </button>
+          </>
+        )}
       </div>
 
       <div className="cartItem__right">

@@ -1,0 +1,14 @@
+.loginReq {
+  text-align: center;
+  /* padding: 5rem 0 5rem 0 !important; */
+  line-height: 1.5rem;
+  height: 55vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.loginReq a {
+  color: #0066c0;
+  text-decoration: none;
+}

@@ -42,7 +42,7 @@ function Payment() {
   }, [cart])
 
   const handleSubmit = async (event) => {
-    // do fancy stripe stuff
+
     event.preventDefault()
     setprocessing(true)
 

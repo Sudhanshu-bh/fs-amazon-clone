@@ -9,6 +9,8 @@ import Footer from '../reusable/Footer'
 import CurrFormat from '../CurrFormat'
 
 function Checkout() {
+
+  // eslint-disable-next-line
   const [{ cart, user }] = useStateValue()
 
   return (

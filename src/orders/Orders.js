@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import { db } from '../firebase'
+import LoginReq from '../LoginReq'
 import Footer from '../reusable/Footer'
 import Header from '../reusable/Header'
 import { useStateValue } from '../StateProvider'
@@ -10,6 +12,7 @@ function Orders() {
 
   let i = 1;
 
+  // eslint-disable-next-line
   const [{ cart, user }, dispatch] = useStateValue()
   const [orders, setOrders] = useState([])
 
@@ -38,6 +41,11 @@ function Orders() {
       <div className="orders lightgray-bg">
 
         <h1 className="orders__heading">Your Orders</h1>
+
+        <LoginReq show={!user}>
+          You are not currently logged in.
+          <p>Please <Link to="/login">login</Link> to view your orders.</p>
+        </LoginReq>
 
         {orders?.map((order) => (
           <Order order={order} number={i++} />

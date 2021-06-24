@@ -1,5 +1,6 @@
 .lightgray-bg {
   background-color: #EAEDED;
+  min-height: 76vh;
 }
 
 .am-button {
