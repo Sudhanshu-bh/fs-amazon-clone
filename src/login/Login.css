@@ -41,7 +41,6 @@
 }
 
 .login__innerContainer form > input {
-  margin-bottom: 20px;
   padding: 7px;
   border: 1px solid #a6a6a6;
   border-radius: 3px;
@@ -55,8 +54,19 @@
   box-shadow: 0 0 3px 2px rgb(228 121 17 / 50%);
 }
 
+#login__passwordLabel {
+  margin-top: 1.2rem;
+}
+
+.login__invalidAlertText {
+  color: rgb(224, 60, 60);
+  margin-top: 0.3rem;
+  font-size: 0.9rem;
+  line-height: 1rem;
+}
+
 .login__signInButton {
-  margin: -0.4rem 0 1.4rem 0;
+  margin: 0.6rem 0 1.4rem 0;
 }
 
 .login__privacy {
