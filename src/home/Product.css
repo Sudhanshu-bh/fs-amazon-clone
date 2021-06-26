@@ -12,6 +12,12 @@
   z-index: 1;
 }
 
+.product:hover {
+  transform: scale(1.018);
+  transition: transform 0.1s ease-in-out;
+  box-shadow: 5px 5px 8px #888888;
+}
+
 .product__rating {
   display: flex;
 }
@@ -30,4 +36,5 @@
 .product__info {
   height: 100px;
   margin-bottom: 15px;
+  width: 100%;
 }

@@ -20,13 +20,13 @@ function Home() {
           <div id="carouselExampleControls" className="carousel slide home__carousel" data-bs-ride="carousel">
             <div className="carousel-inner">
               <div className="carousel-item active">
-                <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img21/Audio/unrec1499/Under1499_Gw_1500x600._CB661592357_.jpg" className="d-block w-100" alt="..." />
+                <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img21/CEPC/Clearance/Jun21/D23947948_IN_CEPC_Clearance_store_May21_rush_3000x12000.5x._CB665291878_.jpg" className="d-block w-100" alt="..." />
               </div>
               <div className="carousel-item">
                 <img src="https://images-eu.ssl-images-amazon.com/images/G/31/Gateway/Zeitgeist/Test/IQOO__ad_test_1500-x-600_updated._CB665297553_.jpg" className="d-block w-100" alt="..." />
               </div>
               <div className="carousel-item">
-                <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img21/CEPC/Clearance/Jun21/D23947948_IN_CEPC_Clearance_store_May21_rush_3000x12000.5x._CB665291878_.jpg" className="d-block w-100" alt="..." />
+                <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img21/Audio/unrec1499/Under1499_Gw_1500x600._CB661592357_.jpg" className="d-block w-100" alt="..." />
               </div>
             </div>
             <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">

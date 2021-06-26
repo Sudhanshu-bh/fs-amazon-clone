@@ -12,13 +12,6 @@
   margin: 0 0.5rem 0 0.5rem;
 }
 
-/* .home__image {
-  width: 100%;
-  z-index: -1;
-  margin-bottom: -150px;
-  mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
-} */
-
 .home__container {
   margin-bottom: 0.5rem;
 }
@@ -33,6 +26,6 @@
 }
 
 .home__carousel img {
-  /* -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0))); */
+  -webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
   mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,1), rgba(0,0,0,0));
 }
