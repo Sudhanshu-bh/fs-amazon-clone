@@ -10,6 +10,7 @@ import Checkout from './checkout/Checkout';
 import Login from './login/Login';
 import Payment from './checkout/Payment';
 import Orders from './orders/Orders';
+import Signup from './signup/Signup';
 
 const promise = loadStripe('pk_test_51J5T7DSIJRW4yvGotVaPhctWXJjjwttRHXMMPaY2gXQYJ7DZ4Hnl7ah6F3AEn0VaM8JkskSlonf3qq0588tDVDmc000if6ulrD');
 
@@ -42,6 +43,10 @@ function App() {
         <Switch>
           <Route path="/login">
             <Login />
+          </Route>
+
+          <Route path="/signup">
+            <Signup />
           </Route>
 
           <Route path="/orders">

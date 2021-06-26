@@ -13,8 +13,8 @@ function Login() {
 
   const [isLoading, setIsLoading] = useState(false)
 
-  const [invalidEmail, setinvalidEmail] = useState()
-  const [invalidPassword, setinvalidPassword] = useState()
+  const [invalidEmail, setinvalidEmail] = useState("")
+  const [invalidPassword, setinvalidPassword] = useState("")
   const [toast, settoast] = useState({ text: "", type: "success" })  // type can be success, danger, or anything else.
 
   const updateEmail = e => {
@@ -55,19 +55,6 @@ function Login() {
       )
   }
 
-  const register = e => {
-    e.preventDefault()
-
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .then((auth) => {
-        if (auth) {
-          history.push("/")
-        }
-      })
-      .catch(error => alert(error.message))
-  }
-
   return (
     <>
 
@@ -85,13 +72,14 @@ function Login() {
           <div className="login__innerContainer">
             <h2 className="login__header">Sign-In</h2>
 
-            <form action="">
+            <form>
               <h5>Email</h5>
               <input
                 type="email"
                 onChange={e => updateEmail(e)}
                 value={email}
                 maxLength="100"
+                spellCheck="false"
               />
               <div className="login__invalidAlertText">
                 {invalidEmail}
@@ -127,11 +115,13 @@ function Login() {
           <div className="login__smallTextContainer">
             <div className="login__smallText">New to Amazon?</div>
           </div>
-          <button
-            className="am-button login__registerButton"
-            onClick={register}>
-            Create your Amazon account
-          </button>
+
+          <Link to="/signup">
+            <button
+              className="am-button login__registerButton">
+              Create your Amazon account
+            </button>
+          </Link>
 
         </div>
 
