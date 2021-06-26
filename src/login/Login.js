@@ -47,7 +47,7 @@ function Login() {
       <div className="login__outerContainer">
 
         <div className="login__innerContainer">
-          <h1 className="login__header">Sign-In</h1>
+          <h2 className="login__header">Sign-In</h2>
 
           <form action="">
             <h5>Email</h5>

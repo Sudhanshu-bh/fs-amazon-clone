@@ -1,3 +1,7 @@
+.login input, .login button {
+  box-sizing: border-box;
+}
+
 .login {
   display: flex;
   flex-direction: column;
@@ -33,6 +37,7 @@
 
 .login__innerContainer form > h5 {
   margin-bottom: 4px;
+  font-size: 0.8rem;
 }
 
 .login__innerContainer form > input {

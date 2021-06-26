@@ -12,10 +12,24 @@
   text-decoration: none;
 }
 
+.header a:hover {
+  color: white;
+}
+
+.header__logoContainer {
+  margin: 0 1rem 0 0.6rem;
+  border: 1px solid #131921;
+}
+
+.header__logoContainer:hover {
+  border: 1px solid white;
+  border-radius: 2px;
+}
+
 .header__logo {
   width: 6.3rem;
   object-fit: contain;
-  margin: 0 1.1rem;
+  margin: 0 0.7rem;
   margin-top: 0.6rem;
 }
 
@@ -25,6 +39,7 @@
   align-items: center;
   margin-right: 0.8rem;
   border-radius: 4px;
+  box-sizing: padding-box;
 }
 
 .header__search:focus-within {
