@@ -1,23 +1,32 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+import { useLocation } from 'react-router-dom'
 import './Home.css'
 import Product from './Product'
 import Footer from '../reusable/Footer'
 import Header from '../reusable/Header'
+import Toast from '../reusable/Toast'
 
 function Home() {
+
+  const location = useLocation()
+  const [toast, settoast] = useState({})
+
+  useEffect(() => {
+    if (location.state?.toast.type === "success") {
+      settoast({ text: "Login successsful!", type: "success" })
+
+      window.history.replaceState({}, document.title)
+    }
+  }, [location])
+
   return (
     <>
       <Header />
 
       <div className="home lightgray-bg">
         <div className="home__container">
-          {/* <img
-            className="home__image"
-            src="https://images-eu.ssl-images-amazon.com/images/G/02/digital/video/merch2016/Hero/Covid19/Generic/GWBleedingHero_ENG_COVIDUPDATE__XSite_1500x600_PV_en-GB._CB428684220_.jpg"
-            alt=""
-          /> */}
 
-          <div id="carouselExampleControls" className="carousel slide home__carousel" data-bs-ride="carousel">
+          <div id="carouselExampleControls" className="carousel slide home__carousel" data-bs-interval="2800" data-bs-ride="carousel">
             <div className="carousel-inner">
               <div className="carousel-item active">
                 <img src="https://images-eu.ssl-images-amazon.com/images/G/31/img21/CEPC/Clearance/Jun21/D23947948_IN_CEPC_Clearance_store_May21_rush_3000x12000.5x._CB665291878_.jpg" className="d-block w-100" alt="..." />
@@ -38,9 +47,6 @@ function Home() {
               <span className="visually-hidden">Next</span>
             </button>
           </div>
-
-
-
 
           <div className="home__row">
             <Product
@@ -98,6 +104,8 @@ function Home() {
       </div>
 
       <Footer />
+
+      <Toast toast={toast} settoast={settoast} />
     </>
   )
 }

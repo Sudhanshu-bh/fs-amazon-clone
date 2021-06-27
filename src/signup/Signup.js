@@ -62,8 +62,7 @@ function Signup() {
       .catch(error => {
         setisLoading(false)
 
-        alert(error.message)
-        console.log(error)
+        // console.log(error)
 
         if (error.code === "auth/invalid-email") {
           setinvalidEmail("Please enter a valid email id.")

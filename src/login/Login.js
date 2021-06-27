@@ -35,11 +35,14 @@ function Login() {
     auth
       .signInWithEmailAndPassword(email, password)
       .then(auth => {
-        history.push("/")
+        settoast({ text: "LOGIN_SUCCESS", type: "success" })
+        history.push({
+          pathname: "/",
+          state: { toast: toast }
+        })
       })
       .catch(error => {
         // console.log(error)
-
         setIsLoading(false)
 
         if (error.code === "auth/invalid-email") {
