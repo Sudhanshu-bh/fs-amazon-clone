@@ -1,0 +1,23 @@
+.verifyEmail__innerContainer {
+  line-height: 1.4rem;
+}
+
+.verifyEmail__small {
+  color: gray;
+  font-size: 0.8rem;
+}
+
+.am-orange-button.verifyEmail__resendButton {
+  margin-top: 0;
+}
+
+.verifyEmail__homeButton {
+  width: 100%;
+  margin-top: 1.2rem;
+}
+
+.login__footer.verifyEmail__footer {
+  height: 4rem;
+  position: absolute;
+  bottom: 0;
+}

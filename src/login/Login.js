@@ -34,8 +34,17 @@ function Login() {
 
     auth
       .signInWithEmailAndPassword(email, password)
-      .then(auth => {
-        settoast({ text: "LOGIN_SUCCESS", type: "success" })
+      .then(() => {
+        // if (!auth.currentUser.emailVerified) {
+        //   console.log("Email not yet verified!")
+        //   auth.signOut()
+        //   history.push({
+        //     pathname: "/verifyemail",
+        //     state: { email: email }
+        //   })
+        // }
+        // console.log("auth.user.isEmailVerified: ", auth.currentUser.emailVerified)
+        settoast({ text: "", type: "success" })
         history.push({
           pathname: "/",
           state: { toast: toast }

@@ -4,6 +4,7 @@
 }
 
 .am-button {
+  box-sizing: border-box;
   border-radius: 3px;
   border-color: #adb1b8 #a2a6ac #8d9096;
   border-style: solid;
@@ -31,6 +32,7 @@
 }
 
 .am-yellow-button {
+  box-sizing: border-box;
   background-color: #FFD814;
   border: 1px solid #FCD200;
   margin-top: 10px;
@@ -51,6 +53,7 @@
 }
 
 .am-orange-button {
+  box-sizing: border-box;
   height: 2rem;
   border: 1px solid;
   border-color: #a88734 #9c7e31 #846a29;

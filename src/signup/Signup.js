@@ -4,6 +4,7 @@ import './Signup.css'
 import { auth } from '../firebase'
 import InfoOutlinedIcon from '@material-ui/icons/InfoOutlined'
 import LoaderButton from '../reusable/LoaderButton'
+import Toast from '../reusable/Toast'
 
 function Signup() {
 
@@ -13,6 +14,7 @@ function Signup() {
   const [password, setpassword] = useState("")
 
   const [isLoading, setisLoading] = useState(false)
+  const [toast, settoast] = useState({ text: "", type: "success" })
 
   const [invalidName, setinvalidName] = useState("")
   const [invalidEmail, setinvalidEmail] = useState("")
@@ -45,23 +47,32 @@ function Signup() {
 
     auth
       .createUserWithEmailAndPassword(email, password)
-      .then(async (auth2) => {
-        if (auth2) {
-          await auth.signInWithEmailAndPassword(email, password)
-          auth.currentUser.updateProfile({
-            displayName: displayName,
-          }).then(() => {
-            history.push("/")
-          }).catch(error => {
-            console.log(error)
-            setisLoading(false)
-          })
-          // history.push("/")
-        }
+      .then((auth2) => {
+        auth2.user.updateProfile({
+          displayName: displayName,
+        }).then(() => {
+          auth2.user.sendEmailVerification()
+            .then(() => {
+              history.push({
+                pathname: "/verifyemail",
+                state: { email: email }
+              })
+            })
+            .catch(error => {
+              console.log("Error in sending verification email: ", error)
+              setisLoading(false)
+              settoast({ text: "We were unable to send the verification email. Please retry from account settings.", type: "danger" })
+              setTimeout(history.push("/"), 7000)
+            })
+        }).catch(error => {
+          console.log("Error while updating displayName: ", error)
+          setisLoading(false)
+          settoast({ text: "We were unable to update your name. Please try from account settings.", type: "danger" })
+          setTimeout(history.push("/"), 7000)
+        })
       })
       .catch(error => {
         setisLoading(false)
-
         // console.log(error)
 
         if (error.code === "auth/invalid-email") {
@@ -159,6 +170,8 @@ function Signup() {
         </div>
 
       </div>
+
+      <Toast toast={toast} settoast={settoast} />
     </>
   )
 }
