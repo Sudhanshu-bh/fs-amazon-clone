@@ -54,7 +54,9 @@ function Security() {
 
           </div>
 
-          <button className="security__doneButton am-orange-button">Done</button>
+          <Link to="/user">
+            <button className="security__doneButton am-orange-button">Done</button>
+          </Link>
 
         </div>
       </div>
