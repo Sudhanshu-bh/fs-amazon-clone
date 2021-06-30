@@ -103,6 +103,7 @@ function Signup() {
             <form>
               <h5>Your name</h5>
               <input
+                autoFocus
                 type="text"
                 onChange={e => updateName(e)}
                 value={displayName}

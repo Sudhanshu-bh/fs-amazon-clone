@@ -87,6 +87,7 @@ function Login() {
             <form>
               <h5>Email</h5>
               <input
+                autoFocus
                 type="email"
                 onChange={e => updateEmail(e)}
                 value={email}

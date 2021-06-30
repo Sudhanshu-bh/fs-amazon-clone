@@ -10,6 +10,7 @@ import Toast from './Toast';
 function Header() {
   const [{ cart, user }] = useStateValue()
 
+  const [blurred, setblurred] = useState("")
   const [toast, settoast] = useState({ text: "", type: "success" })
 
   const signOut = () => {
@@ -21,6 +22,10 @@ function Header() {
           console.log(error)
         })
     }
+  }
+
+  const handleBlur = () => {
+    blurred ? setblurred("") : setblurred("blurredAfter")
   }
 
   return (
@@ -43,7 +48,7 @@ function Header() {
 
         <div className="header__nav">
 
-          <div className="header__ddUser">
+          <div className="header__ddUser" onMouseOver={handleBlur} onMouseOut={handleBlur}>
             <Link
               className="header__option header__ddToggle"
               to={user ? "/user" : "/login"}>
@@ -52,11 +57,14 @@ function Header() {
               <span className="header__optionLineTwo">
                 Account & Lists
               </span>
+
+              <div className="header__ddPinContainer">
+                <div className="header__ddPin"></div>
+              </div>
             </Link>
 
             {user ? (
               <div className="header__dd">
-                <div className="header__ddPin"></div>
                 <div class="header__ddMenu">
 
                   <div className="header__ddList left">
@@ -78,7 +86,6 @@ function Header() {
               </div>
             ) : (
               <div className="header__dd">
-                <div className="header__ddPin"></div>
                 <div className="header__ddMenu signIn">
                   <Link to="/login"><button className="header__ddItem signInButton am-orange-button">Sign in</button></Link>
                   <small>New customer?&nbsp;
@@ -110,7 +117,7 @@ function Header() {
 
       </div>
 
-      <div className="header__nonSticky">
+      <div className={`header__nonSticky ${blurred}`}>
         <Link to="#"><strong>☰ &nbsp;All</strong></Link>
         <Link to="#">Mobiles</Link>
         <Link to="#">Amazon Pay</Link>

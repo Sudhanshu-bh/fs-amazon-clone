@@ -123,7 +123,7 @@ div.header__optionBasketVisual {
 .header__dd {
   display: none;
   position: absolute;
-  z-index: 4;
+  z-index: 5;
 }
 
 .header__ddUser:hover .header__dd {
@@ -131,17 +131,29 @@ div.header__optionBasketVisual {
   flex-direction: column;
 }
 
+.header__ddPinContainer {
+  height: 0;
+  z-index: 6;
+  display: none;
+  cursor: default;
+}
+
 .header__ddPin {
   width: 0.6rem;
   height: 0.6rem;
   background: white;
-  position: absolute;
-  left: 27%;
+  /* position: absolute; */
   transform: rotate(45deg);
   border-width: 1px 0 0 1px;
   border-style: solid;
   border-color: lightgray;
-  margin-top: 2px;
+  margin-top: 14px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.header__ddUser:hover .header__ddPinContainer {
+  display: block;
 }
 
 .header__ddMenu {
@@ -191,7 +203,7 @@ div.header__optionBasketVisual {
 
 .header__ddMenu.signIn {
   width: initial;
-  margin: 0.45rem 2rem 0 -3rem;
+  margin: 0.45rem 0 0 -3rem;
 }
 
 .header__ddUser:hover .header__ddMenu.signIn {
@@ -246,4 +258,15 @@ div.header__optionBasketVisual {
 
 .header__nonSticky a:first-of-type {
   margin-left: 10px;
+}
+
+.blurredAfter::after {
+  content: '';
+  display: block;
+  position: fixed;
+  top: 0;
+  background: rgba(0,0,0, 0.6);
+  min-height: 100vh;
+  min-width: 100vw;
+  z-index: 4;
 }
