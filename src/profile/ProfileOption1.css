@@ -1,0 +1,30 @@
+.profileOption1 {
+  display: flex;
+  padding: 1rem;
+  width: 28.8%;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 1.2rem;
+  text-decoration: none;
+}
+
+.profileOption1:hover {
+  background: #eee;
+}
+
+.profileOption1__image {
+  width: 4.5rem;
+  object-fit: contain;
+  margin-right: 0.5rem;
+}
+
+.profileOption1__title {
+  font-size: 1rem;
+  color: #111;
+  margin-bottom: 0.3rem;
+}
+
+.profileOption1__desc {
+  color: #606060;
+  font-size: 0.82rem;
+}

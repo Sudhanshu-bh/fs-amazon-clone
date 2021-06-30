@@ -1,0 +1,17 @@
+.security nav {
+  --bs-breadcrumb-divider: '›';
+}
+
+.security .breadcrumb a {
+  text-decoration: none;
+  color: #0066c0;
+}
+
+.security .breadcrumb a:hover {
+  color: #c45500;
+  text-decoration: underline;
+}
+
+.breadcrumb-item.active {
+  color: #c45500;
+}

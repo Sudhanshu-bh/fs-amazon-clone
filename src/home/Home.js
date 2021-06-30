@@ -72,7 +72,6 @@ function Home() {
               price={2999}
               rating={3}
               image="https://images-na.ssl-images-amazon.com/images/I/61EXU8BuGZL._SL1100_.jpg"
-            // image="https://media.very.co.uk/i/very/P6LTG_SQ1_0000000071_CHARCOAL_SLf?$300*400_retinamobilex2$"
             />
             <Product
               id="85565412"

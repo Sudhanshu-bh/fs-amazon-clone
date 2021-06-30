@@ -22,12 +22,13 @@ function VerifyEmail() {
     auth.currentUser?.sendEmailVerification()
       .then(() => {
         settoast({ text: "Verification email sent successfully!", type: "success" })
+        setisLoading(false)
       })
       .catch(error => {
         console.log("Error while resending email: ", error)
         settoast({ text: "Something went wrong!", type: "danger" })
+        setisLoading(false)
       })
-    setisLoading(false)
   }
 
   useEffect(() => {

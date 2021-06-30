@@ -29,7 +29,7 @@ function Header() {
         <Link to="/" className="header__logoContainer">
           <img
             className="header__logo"
-            src="http://pngimg.com/uploads/amazon/amazon_PNG11.png"
+            src="https://pngimg.com/uploads/amazon/amazon_PNG11.png"
             alt="Amazon logo"
           />
         </Link>
@@ -43,14 +43,12 @@ function Header() {
 
         <div className="header__nav">
 
-          <Link to={!user && "/login"}>
-            <div
-              className="header__option"
-              onClick={handleAuth}>
-              <span className="header__optionLineOne">Hello
-                {user ? " " + user.displayName : " Guest"}</span>
+          <Link to={user ? "/profile" : "/login"}>
+            <div className="header__option">
+              <span className="header__optionLineOne">Hello,
+                {user ? " " + user.displayName : " Sign in"}</span>
               <span className="header__optionLineTwo">
-                {user ? "Sign Out" : "Sign In"}
+                Account & Lists
               </span>
             </div>
           </Link>
