@@ -12,7 +12,7 @@ function Header() {
 
   const [toast, settoast] = useState({ text: "", type: "success" })
 
-  const handleAuth = () => {
+  const signOut = () => {
     if (user) {
       auth.signOut()
         .then(() => { settoast({ text: "Signed out successfully!", type: "success" }) })
@@ -43,27 +43,46 @@ function Header() {
 
         <div className="header__nav">
 
-          <Link to={user ? "/user" : "/login"}>
-            <div className="header__option">
+
+          <div className="header__ddUser">
+            <Link
+              className="header__option header__ddToggle"
+              to={user ? "/user" : "/login"}>
               <span className="header__optionLineOne">Hello,
                 {user ? " " + user.displayName : " Sign in"}</span>
               <span className="header__optionLineTwo">
                 Account & Lists
               </span>
-            </div>
-          </Link>
+            </Link>
 
-          <Link to="/orders">
+            {user && (
+              <div class="header__ddMenu">
+                <div className="header__ddList left">
+                  <h6>Your Lists</h6>
+                  <Link className="header__ddItem first">{user?.displayName}'s Wish List</Link>
+                  <Link className="header__ddItem" to="#">Create a Wish List</Link>
+                  <Link className="header__ddItem" to="#">Find a Wish List</Link>
+
+                </div>
+                <div className="header__ddList right">
+                  <h6>Your Account</h6>
+                  <Link className="header__ddItem" to="/user">Your Account</Link>
+                  <Link className="header__ddItem" to="/user/orders">Your Orders</Link>
+                  <Link className="header__ddItem" to="">Your Wish List</Link>
+                  <Link className="header__ddItem" to="">Your Recommendations</Link>
+                  <Link className="header__ddItem" to="/login"><div onClick={signOut}>Sign Out</div></Link>
+                </div>
+              </div>
+            )}
+          </div>
+
+
+          <Link to="/user/orders">
             <div className="header__option">
               <span className="header__optionLineOne">Returns</span>
               <span className="header__optionLineTwo">& Orders</span>
             </div>
           </Link>
-
-          <div className="header__option">
-            <span className="header__optionLineOne">Your</span>
-            <span className="header__optionLineTwo">Prime</span>
-          </div>
 
           <Link to="/checkout" className="header__optionBasket header__option">
             <div className="header__optionBasketVisual">

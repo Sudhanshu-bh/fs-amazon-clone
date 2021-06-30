@@ -45,7 +45,9 @@ function Footer() {
 
         <div className="footer__column">
           <h6 className="footer__title">Connect with Us</h6>
-          <a href="https://www.linkedin.com/in/sudhanshu-bhardwaj-60b945188" target="_blank">LinkedIn</a>
+          <a href="https://www.linkedin.com/in/sudhanshu-bhardwaj-60b945188" target="_blank" rel="noreferrer">
+            LinkedIn
+          </a>
           <Link to="#">Facebook</Link>
           <Link to="#">Instagram</Link>
         </div>

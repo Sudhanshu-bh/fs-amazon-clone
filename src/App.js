@@ -52,16 +52,16 @@ function App() {
             <Security />
           </Route>
 
+          <Route path="/user/orders">
+            <Orders />
+          </Route>
+
           <Route path="/user">
             <Profile />
           </Route>
 
           <Route path="/signup">
             <Signup />
-          </Route>
-
-          <Route path="/orders">
-            <Orders />
           </Route>
 
           <Route path="/checkout">

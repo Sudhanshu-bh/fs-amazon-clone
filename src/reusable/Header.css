@@ -2,6 +2,7 @@
   height: 3.7rem;
   display: flex;
   align-items: center;
+  padding: 0 10px;
   background-color: #131921;
   position: sticky;
   top: 0;
@@ -17,7 +18,7 @@
 }
 
 .header__logoContainer {
-  margin: 0 1rem 0 0.6rem;
+  margin: 0 12px 0 0;
   border: 1px solid #131921;
 }
 
@@ -119,8 +120,63 @@ div.header__optionBasketVisual {
   border-radius: 2px;
 }
 
+.header__ddMenu {
+  display: none;
+  position: absolute;
+  width: 22rem;
+  margin: 0 2rem 0 -10rem;
+  background: white;
+  border: 1px solid lightgray;
+  border-radius: 4px;
+  padding: 1.5rem;
+}
+
+.header__ddUser:hover .header__ddMenu {
+  display: flex;
+}
+
+.header__ddUser:hover .header__ddToggle {
+  border: 1px solid white;
+}
+
+.header__ddList {
+  display: flex;
+  flex-direction: column;
+}
+
+.header__ddList.left {
+  border-right: 1px solid lightgray;
+  padding-right: 1rem;
+  margin-right: 1rem;
+  flex: 1;
+}
+
+.header__ddList.left .first {
+  padding-bottom: 10px;
+  border-bottom: 1px solid lightgray;
+}
+
+.header__ddList.right {
+  flex: 1;
+}
+
+.header__ddItem {
+  font-size: 0.8rem;
+  color: #131921;
+  margin-bottom: 10px;
+}
+
+.header__ddItem:last-of-type {
+  margin-bottom: 0;
+}
+
+a.header__ddItem:hover {
+  color: #ffa060;
+  text-decoration: underline;
+}
+
 .header__nonSticky {
-  background: #232f3e;
+  background: black;
   color: #EEE;
 }
 
@@ -129,8 +185,8 @@ div.header__optionBasketVisual {
   color: #EEE;
   text-decoration: none;
   font-size: 0.85rem;
-  margin: 5px 0 5px 1px;
-  padding: 0.4rem 0.6rem;
+  margin: 5px 1px;
+  padding: 0.4rem 0.5rem;
   border: 1px solid #232f3e;
   border-radius: 2px;
 }
@@ -139,6 +195,6 @@ div.header__optionBasketVisual {
   border: 1px solid #EEE;
 }
 
-.header__nonSticky a:nth-of-type(1) {
+.header__nonSticky a:first-of-type {
   margin-left: 10px;
 }
