@@ -36,38 +36,38 @@ function Footer() {
       <div className="footer__part1">
         <div className="footer__column">
           <h6 className="footer__title">Get to Know Us</h6>
-          <Link to="">About Us</Link>
-          <Link to="">Careers</Link>
-          <Link to="">Press Releases</Link>
-          <Link to="">Amazon Cares</Link>
-          <Link to="">Gift a Smile</Link>
+          <Link to="#">About Us</Link>
+          <Link to="#">Careers</Link>
+          <Link to="#">Press Releases</Link>
+          <Link to="#">Amazon Cares</Link>
+          <Link to="#">Gift a Smile</Link>
         </div>
 
         <div className="footer__column">
           <h6 className="footer__title">Connect with Us</h6>
-          <Link to="">LinkedIn</Link>
-          <Link to="">Facebook</Link>
-          <Link to="">Instagram</Link>
+          <a href="https://www.linkedin.com/in/sudhanshu-bhardwaj-60b945188" target="_blank">LinkedIn</a>
+          <Link to="#">Facebook</Link>
+          <Link to="#">Instagram</Link>
         </div>
 
         <div className="footer__column">
           <h6 className="footer__title">Make Money with Us</h6>
-          <Link to="">Sell on Amazon</Link>
-          <Link to="">Sell under Amazon Accelerator</Link>
-          <Link to="">Amazon Global Selling</Link>
-          <Link to="">Become an Affiliate</Link>
-          <Link to="">Fulfilment by Amazon</Link>
-          <Link to="">Advertise Your Products</Link>
-          <Link to="">Amazon Pay on Merchants</Link>
+          <Link to="#">Sell on Amazon</Link>
+          <Link to="#">Sell under Amazon Accelerator</Link>
+          <Link to="#">Amazon Global Selling</Link>
+          <Link to="#">Become an Affiliate</Link>
+          <Link to="#">Fulfilment by Amazon</Link>
+          <Link to="#">Advertise Your Products</Link>
+          <Link to="#">Amazon Pay on Merchants</Link>
         </div>
 
         <div className="footer__column">
           <h6 className="footer__title">Let Us Help You</h6>
-          <Link to="">Your Account</Link>
-          <Link to="">Returns Centre</Link>
-          <Link to="">100% Purchase Protection</Link>
-          <Link to="">Amazon App Download</Link>
-          <Link to="">Help</Link>
+          <Link to="/user" target="_blank">Your Account</Link>
+          <Link to="#">Returns Centre</Link>
+          <Link to="#">100% Purchase Protection</Link>
+          <Link to="#">Amazon App Download</Link>
+          <Link to="#">Help</Link>
         </div>
       </div>
 
@@ -135,9 +135,9 @@ function Footer() {
         </div>
 
         <div className="footer__rowLast">
-          <Link to="">Conditions of Use & Sale</Link>
-          <Link to="">Privacy Notice</Link>
-          <Link to="">&copy; 2021, Amazon Clone, by Sudhanshu Bhardwaj</Link>
+          <Link to="#">Conditions of Use & Sale</Link>
+          <Link to="#">Privacy Notice</Link>
+          <Link to="#">&copy; 2021, Amazon Clone, by Sudhanshu Bhardwaj</Link>
         </div>
 
         {/* <strong>Full Stack Amazon Clone</strong>
