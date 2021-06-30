@@ -77,6 +77,16 @@ function Header() {
 
       </div>
 
+      <div className="header__nonSticky">
+        <Link to=""><strong>☰ &nbsp;All</strong></Link>
+        <Link to="">Mobiles</Link>
+        <Link to="">Amazon Pay</Link>
+        <Link to="">Home Improvement</Link>
+        <Link to="">Kindle eBooks</Link>
+        <Link to="">Computers</Link>
+        <Link to="">Sports, Fitness & Outdoors</Link>
+      </div>
+
       <Toast toast={toast} settoast={settoast} />
     </>
   )
