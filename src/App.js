@@ -48,12 +48,12 @@ function App() {
             <Login />
           </Route>
 
-          <Route path="/profile">
-            <Profile />
-          </Route>
-
           <Route path="/user/security">
             <Security />
+          </Route>
+
+          <Route path="/user">
+            <Profile />
           </Route>
 
           <Route path="/signup">

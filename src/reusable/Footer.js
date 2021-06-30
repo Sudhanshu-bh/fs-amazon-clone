@@ -25,7 +25,7 @@ function Footer() {
   }, []);
 
   return (
-    <div className="footer">
+    <footer className="footer">
       {isVisible &&
         (<div className="footer__backToTop" onClick={scrollToTop}>
           <small>Back to top</small>
@@ -36,7 +36,7 @@ function Footer() {
         <small> made by </small>
         <strong>Sudhanshu Bhardwaj</strong>
       </div>
-    </div >
+    </footer>
   )
 }
 

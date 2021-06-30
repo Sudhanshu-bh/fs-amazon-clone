@@ -43,7 +43,7 @@ function Header() {
 
         <div className="header__nav">
 
-          <Link to={user ? "/profile" : "/login"}>
+          <Link to={user ? "/user" : "/login"}>
             <div className="header__option">
               <span className="header__optionLineOne">Hello,
                 {user ? " " + user.displayName : " Sign in"}</span>
