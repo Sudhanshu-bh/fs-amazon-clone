@@ -43,7 +43,6 @@ function Header() {
 
         <div className="header__nav">
 
-
           <div className="header__ddUser">
             <Link
               className="header__option header__ddToggle"
@@ -55,25 +54,40 @@ function Header() {
               </span>
             </Link>
 
-            {user && (
-              <div class="header__ddMenu">
-                <div className="header__ddList left">
-                  <h6>Your Lists</h6>
-                  <Link className="header__ddItem first">{user?.displayName}'s Wish List</Link>
-                  <Link className="header__ddItem" to="#">Create a Wish List</Link>
-                  <Link className="header__ddItem" to="#">Find a Wish List</Link>
+            {user ? (
+              <div className="header__dd">
+                <div className="header__ddPin"></div>
+                <div class="header__ddMenu">
 
-                </div>
-                <div className="header__ddList right">
-                  <h6>Your Account</h6>
-                  <Link className="header__ddItem" to="/user">Your Account</Link>
-                  <Link className="header__ddItem" to="/user/orders">Your Orders</Link>
-                  <Link className="header__ddItem" to="">Your Wish List</Link>
-                  <Link className="header__ddItem" to="">Your Recommendations</Link>
-                  <Link className="header__ddItem" to="/login"><div onClick={signOut}>Sign Out</div></Link>
+                  <div className="header__ddList left">
+                    <h6>Your Lists</h6>
+                    <Link className="header__ddItem first">{user?.displayName}'s Wish List</Link>
+                    <Link className="header__ddItem" to="#">Create a Wish List</Link>
+                    <Link className="header__ddItem" to="#">Find a Wish List</Link>
+
+                  </div>
+                  <div className="header__ddList right">
+                    <h6>Your Account</h6>
+                    <Link className="header__ddItem" to="/user">Your Account</Link>
+                    <Link className="header__ddItem" to="/user/orders">Your Orders</Link>
+                    <Link className="header__ddItem" to="">Your Wish List</Link>
+                    <Link className="header__ddItem" to="">Your Recommendations</Link>
+                    <Link className="header__ddItem" to="/login"><div onClick={signOut}>Sign Out</div></Link>
+                  </div>
                 </div>
               </div>
-            )}
+            ) : (
+              <div className="header__dd">
+                <div className="header__ddPin"></div>
+                <div className="header__ddMenu signIn">
+                  <Link to="/login"><button className="header__ddItem signInButton am-orange-button">Sign in</button></Link>
+                  <small>New customer?&nbsp;
+                    <Link to="/signup">Start here.</Link>
+                  </small>
+                </div>
+              </div>
+            )
+            }
           </div>
 
 

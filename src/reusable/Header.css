@@ -120,23 +120,43 @@ div.header__optionBasketVisual {
   border-radius: 2px;
 }
 
-.header__ddMenu {
+.header__dd {
   display: none;
   position: absolute;
+  z-index: 4;
+}
+
+.header__ddUser:hover .header__dd {
+  display: flex;
+  flex-direction: column;
+}
+
+.header__ddPin {
+  width: 0.6rem;
+  height: 0.6rem;
+  background: white;
+  position: absolute;
+  left: 27%;
+  transform: rotate(45deg);
+  border-width: 1px 0 0 1px;
+  border-style: solid;
+  border-color: lightgray;
+  margin-top: 2px;
+}
+
+.header__ddMenu {
+  display: flex;
   width: 22rem;
-  margin: 0 2rem 0 -10rem;
+  margin: 0.45rem 0 0 -10rem;
   background: white;
   border: 1px solid lightgray;
   border-radius: 4px;
   padding: 1.5rem;
 }
 
-.header__ddUser:hover .header__ddMenu {
-  display: flex;
-}
-
 .header__ddUser:hover .header__ddToggle {
   border: 1px solid white;
+  border-radius: 2px;
 }
 
 .header__ddList {
@@ -162,7 +182,6 @@ div.header__optionBasketVisual {
 
 .header__ddItem {
   font-size: 0.8rem;
-  color: #131921;
   margin-bottom: 10px;
 }
 
@@ -170,13 +189,43 @@ div.header__optionBasketVisual {
   margin-bottom: 0;
 }
 
-a.header__ddItem:hover {
+.header__ddMenu.signIn {
+  width: initial;
+  margin: 0.45rem 2rem 0 -3rem;
+}
+
+.header__ddUser:hover .header__ddMenu.signIn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header__ddMenu.signIn small {
+  margin-top: 8px;
+  font-size: 0.75rem;
+}
+
+.header__ddItem.signInButton {
+  margin-top: 0;
+  padding-right: 4rem;
+  padding-left: 4rem;
+}
+
+.header__ddMenu.signIn a {
+  color: #05a;
+}
+
+.header__ddMenu a {
+  color: #444;
+}
+
+.header__ddMenu a:hover {
   color: #ffa060;
   text-decoration: underline;
 }
 
 .header__nonSticky {
-  background: black;
+  background: #232f3e;
   color: #EEE;
 }
 
