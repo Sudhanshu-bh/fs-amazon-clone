@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
+import { useStateValue } from '../StateProvider';
 import './Footer.css'
 
 function Footer() {
 
+  const [{ user }] = useStateValue()
   const [isVisible, setisVisible] = useState(false)
 
   const toggleVisibility = () => {
@@ -45,7 +47,7 @@ function Footer() {
 
         <div className="footer__column">
           <h6 className="footer__title">Connect with Us</h6>
-          <a href="https://www.linkedin.com/in/sudhanshu-bhardwaj-60b945188" target="_blank" rel="noreferrer">
+          <a href="https://www.linkedin.com/in/sudhanshu-bh/" target="_blank" rel="noreferrer">
             LinkedIn
           </a>
           <Link to="#">Facebook</Link>
@@ -65,7 +67,7 @@ function Footer() {
 
         <div className="footer__column">
           <h6 className="footer__title">Let Us Help You</h6>
-          <Link to="/user" target="_blank">Your Account</Link>
+          <Link to={user ? "/user" : "/login"} target="_blank">Your Account</Link>
           <Link to="#">Returns Centre</Link>
           <Link to="#">100% Purchase Protection</Link>
           <Link to="#">Amazon App Download</Link>
