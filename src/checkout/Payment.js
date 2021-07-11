@@ -10,6 +10,7 @@ import { getCartTotal } from '../reducer'
 import CurrFormat from '../CurrFormat'
 import axios from '../axios'
 import { db } from '../firebase'
+import { EMPTY_CART } from '../actionsList'
 
 function Payment() {
   const history = useHistory()
@@ -69,7 +70,7 @@ function Payment() {
       setprocessing(false)
 
       dispatch({
-        type: 'EMPTY_CART'
+        type: EMPTY_CART
       })
       history.replace('/orders')
     })

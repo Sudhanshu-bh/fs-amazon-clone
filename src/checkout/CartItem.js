@@ -2,6 +2,7 @@ import React from 'react'
 import './CartItem.css'
 import { useStateValue } from '../StateProvider'
 import CurrFormat from '../CurrFormat';
+import { REMOVE_FROM_CART } from '../actionsList'
 
 function CartItem({ id, title, image, price, rating, hideButtons }) {
 
@@ -10,7 +11,7 @@ function CartItem({ id, title, image, price, rating, hideButtons }) {
 
   const removeFromCart = () => {
     dispatch({
-      type: 'REMOVE_FROM_CART',
+      type: REMOVE_FROM_CART,
       id: id,
     })
   }

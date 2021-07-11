@@ -16,9 +16,9 @@ function Security() {
         <div className="security__inner">
 
           <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><Link to="/user"><small>Your Account</small></Link></li>
-              <li class="breadcrumb-item active" aria-current="page"><small>Login & Security</small></li>
+            <ol className="breadcrumb">
+              <li className="breadcrumb-item"><Link to="/user"><small>Your Account</small></Link></li>
+              <li className="breadcrumb-item active" aria-current="page"><small>Login & Security</small></li>
             </ol>
           </nav>
 

@@ -25,8 +25,7 @@ function VerifyEmail() {
         setisLoading(false)
       })
       .catch(error => {
-        console.log("Error while resending email: ", error)
-        settoast({ text: "Something went wrong!", type: "danger" })
+        console.log("Error while sending email: ", error)
         setisLoading(false)
       })
   }

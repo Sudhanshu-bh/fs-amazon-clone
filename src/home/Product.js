@@ -6,11 +6,11 @@ import CurrFormat from '../CurrFormat';
 function Product({ id, title, image, price, rating }) {
 
   // eslint-disable-next-line
-  const [{ cart }, dispatch] = useStateValue();
+  const [{ user, cart }, dispatch] = useStateValue();
 
   const addToCart = () => {
     dispatch({
-      type: 'ADD_TO_CART',
+      type: ADD_TO_CART,
       item: {
         id: id,
         title: title,

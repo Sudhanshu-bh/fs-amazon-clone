@@ -14,6 +14,7 @@ import Signup from './signup/Signup';
 import VerifyEmail from './signup/VerifyEmail';
 import Profile from './profile/Profile';
 import Security from './profile/Security';
+import { SET_USER } from './actionsList';
 
 const promise = loadStripe('pk_test_51J5T7DSIJRW4yvGotVaPhctWXJjjwttRHXMMPaY2gXQYJ7DZ4Hnl7ah6F3AEn0VaM8JkskSlonf3qq0588tDVDmc000if6ulrD');
 
@@ -27,12 +28,12 @@ function App() {
 
       if (authUser) {
         dispatch({
-          type: 'SET_USER',
+          type: SET_USER,
           user: authUser
         })
       } else {
         dispatch({
-          type: 'SET_USER',
+          type: SET_USER,
           user: null
         })
       }

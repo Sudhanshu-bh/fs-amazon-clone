@@ -1,3 +1,5 @@
+import * as actions from './actionsList'
+
 export const initialState = {
   cart: [],
   user: null,
@@ -10,19 +12,19 @@ export const getCartTotal = (cart) =>
 const reducer = (state, action) => {
 
   switch (action.type) {
-    case 'ADD_TO_CART':
+    case actions.ADD_TO_CART:
       return {
         ...state,
         cart: [...state.cart, action.item],
       };
 
-    case 'EMPTY_CART':
+    case actions.EMPTY_CART:
       return {
         ...state,
         cart: [],
       }
 
-    case 'REMOVE_FROM_CART':
+    case actions.REMOVE_FROM_CART:
       const index = state.cart.findIndex(
         (cartItem) => cartItem.id === action.id
       );
@@ -41,7 +43,7 @@ const reducer = (state, action) => {
         cart: newCart
       }
 
-    case 'SET_USER':
+    case actions.SET_USER:
       return {
         ...state,
         user: action.user
@@ -54,4 +56,3 @@ const reducer = (state, action) => {
 };
 
 export default reducer;
-

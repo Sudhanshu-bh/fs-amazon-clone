@@ -65,7 +65,7 @@ function Header() {
 
             {user ? (
               <div className="header__dd">
-                <div class="header__ddMenu">
+                <div className="header__ddMenu">
 
                   <div className="header__ddList left">
                     <h6>Your Lists</h6>
