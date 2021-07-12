@@ -2,6 +2,7 @@ import React from 'react';
 import './Product.css';
 import { useStateValue } from '../StateProvider';
 import CurrFormat from '../CurrFormat';
+import { ADD_TO_CART } from '../actionsList'
 
 function Product({ id, title, image, price, rating }) {
 

@@ -18,6 +18,7 @@ function Order({ order, number }) {
           image={item.image}
           price={item.price}
           rating={item.rating}
+          quantity={item.quantity}
           hideButtons
         />
       ))}

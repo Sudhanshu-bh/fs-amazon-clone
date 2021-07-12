@@ -33,6 +33,7 @@
 .checkout__leftSubtotal {
   text-align: right;
   padding-top: 0.8rem;
+  padding-bottom: 0.3rem;
   font-size: 1.2rem;
 }
 

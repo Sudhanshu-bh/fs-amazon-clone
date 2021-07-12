@@ -108,7 +108,9 @@ function Header() {
           <Link to="/checkout" className="header__optionBasket header__option">
             <div className="header__optionBasketVisual">
               <ShoppingCartOutlinedIcon className="header__cartIcon" />
-              <span className="header__optionLineTwo header__basketCount">{cart?.length}</span>
+              <span className="header__optionLineTwo header__basketCount">
+                {cart?.reduce((size, item) => item.quantity + size, 0)}
+              </span>
             </div>
             <span>&nbsp;Cart</span>
           </Link>
