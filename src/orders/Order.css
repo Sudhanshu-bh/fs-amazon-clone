@@ -16,6 +16,7 @@
 
 .order__address>div {
   display: flex;
+  margin-top: 2px;
 }
 
 .order__address>div>span {

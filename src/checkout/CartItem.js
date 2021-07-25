@@ -4,7 +4,7 @@ import { useStateValue } from '../StateProvider'
 import CurrFormat from '../CurrFormat';
 import { INCREASE_QTY, DECREASE_QTY, REMOVE_FROM_CART } from '../actionsList'
 
-function CartItem({ id, title, image, price, rating, quantity, hideButtons }) {
+function CartItem({ id, title, image, price, rating, quantity, hideButtons, removeBorder }) {
 
   // eslint-disable-next-line
   const [{ cart }, dispatch] = useStateValue();
@@ -34,7 +34,7 @@ function CartItem({ id, title, image, price, rating, quantity, hideButtons }) {
   }
 
   return (
-    <div className="cartItem">
+    <div className={`cartItem ${removeBorder && "removeBottomBorder"}`}>
       <img
         className="cartItem__left"
         src={image}
@@ -68,7 +68,6 @@ function CartItem({ id, title, image, price, rating, quantity, hideButtons }) {
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
                     <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
                   </svg>
-                  <strong></strong>
                 </div>
                 <div className="cartItem__buttons" id="quantityNumber">{quantity}</div>
                 <div className="cartItem__buttons" onClick={increaseQty}>

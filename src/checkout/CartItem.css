@@ -4,6 +4,11 @@
   border-bottom: 1px solid lightgray;
 }
 
+.cartItem.removeBottomBorder:last-of-type {
+  border-bottom: none;
+  padding-bottom: 1rem;
+}
+
 .cartItem__left {
   width: 23%;
   min-width: 12rem;

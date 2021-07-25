@@ -30,7 +30,7 @@ function Checkout() {
             <div className="checkout__title">
               <h1>Shopping Cart</h1>
               <div className="checkout__priceTag">
-                <small>Price</small>
+                <small>Price per unit</small>
               </div>
             </div>
 

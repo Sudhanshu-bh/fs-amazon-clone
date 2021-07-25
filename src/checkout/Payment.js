@@ -136,6 +136,7 @@ function Payment() {
                   rating={item.rating}
                   quantity={item.quantity}
                   hideButtons
+                  removeBorder
                 />
               ))}
             </div>
