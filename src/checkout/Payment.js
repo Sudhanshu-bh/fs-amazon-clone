@@ -27,6 +27,15 @@ function Payment() {
 
   const [clientSecret, setclientSecret] = useState(true)
 
+  // eslint-disable-next-line
+  let name, mobile, pincode, area, city, state
+  let address
+
+  const updateAddress = () => {
+    address = area + ", " + city + "-" + pincode + ", " + state
+    console.log(address)
+  }
+
   useEffect(() => {
     // generate the special stripe secret which allows us to charge a customer
     const getClientSecret = async () => {
@@ -64,6 +73,7 @@ function Payment() {
           cart: cart,
           amount: paymentIntent.amount,
           created: paymentIntent.created,
+          // address: 
         })
 
       setsucceeded(true)
@@ -96,16 +106,8 @@ function Payment() {
 
         <div className="payment__container">
 
-          <div className="payment__section">
-            <h3 className="payment__title">Delivery Address</h3>
-            <div className="payment__address">
-              <p>{user?.email}</p>
-              <p>H-No. 52-A, Adarsh Apartments, Sector-10, Dwarka</p>
-              <p>New Delhi, India</p>
-            </div>
-          </div>
 
-          <div className="payment__section">
+          <div className="payment__section payment__reviewItems">
             <h3 className="payment__title">Review items and delivery</h3>
             <div className="payment__items">
               {cart.map(item => (
@@ -115,34 +117,72 @@ function Payment() {
                   image={item.image}
                   price={item.price}
                   rating={item.rating}
+                  quantity={item.quantity}
+                  hideButtons
                 />
               ))}
             </div>
           </div>
 
-          <div className="payment__section">
-            <h3 className="payment__title">Payment Method</h3>
-            <div className="payment__details">
+          <div className="payment__bottom">
+            <div className="payment__section payment__address">
+              <h3 className="payment__title">Delivery Address</h3>
+              <div>
+                <p>{user?.email}</p>
 
-              <form onSubmit={handleSubmit}>
-                <CardElement onChange={handleChange} />
-
-                <div className="payment__priceContainer">
-                  <h3>
-                    Order Total:
-                    <small> ₹</small>
-                    <CurrFormat price={getCartTotal(cart)} />
-                  </h3>
-                  <button
-                    className="am-button"
-                    disabled={processing || disabled || succeeded}>
-                    {processing ? "Processing" : "Buy Now"}
-                  </button>
+                <div className="inputSection">
+                  <span>Name : </span>
+                  <input type="text" name="name" onChange={e => name = e.target.value} />
+                </div>
+                <div className="inputSection">
+                  <span>Mobile number : </span>
+                  <input type="text" name="mobile" onChange={e => mobile = e.target.value} />
+                </div>
+                <div className="inputSection">
+                  <span>Pincode : </span>
+                  <input type="text" name="pincode" onChange={e => { pincode = e.target.value; updateAddress() }} />
+                </div>
+                <div className="inputSection">
+                  <span>Area and Street : </span>
+                  <input type="text" name="area" onChange={e => { area = e.target.value; updateAddress() }} />
+                </div>
+                <div className="inputSection">
+                  <span>City/District/Town : </span>
+                  <input type="text" name="city" onChange={e => { city = e.target.value; updateAddress() }} />
+                </div>
+                <div className="inputSection">
+                  <span>State : </span>
+                  <input type="text" name="state" onChange={e => { state = e.target.value; updateAddress() }} />
                 </div>
 
-                {error && <div>{error}</div>}
-              </form>
+              </div>
+            </div>
 
+
+            <div className="payment__section payment__card">
+              <h3 className="payment__title">Payment Method</h3>
+              <div className="payment__details">
+
+                <form onSubmit={handleSubmit}>
+                  <CardElement onChange={handleChange} />
+
+                  <div className="payment__priceContainer">
+                    <h5>
+                      Order Total:
+                      <small> ₹</small>
+                      <CurrFormat price={getCartTotal(cart)} />
+                    </h5>
+                    <button
+                      className="am-button"
+                      disabled={processing || disabled || succeeded}>
+                      {processing ? "Processing" : "Buy Now"}
+                    </button>
+                  </div>
+
+                  {error && <div>{error}</div>}
+                </form>
+
+              </div>
             </div>
           </div>
         </div>

@@ -19,3 +19,54 @@
   color: #0066c0;
   text-decoration: none;
 }
+
+.payment__bottom {
+  display: flex;
+}
+
+.payment__section.payment__address {
+  margin-right: 1rem;
+  flex: 1;
+}
+
+.payment__address>div>p {
+  margin-bottom: 1.7rem;
+  color: gray;
+  font-size: 0.8rem;
+}
+
+.payment__address .inputSection {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  color: rgb(46, 46, 46);
+}
+
+.payment__address .inputSection:last-of-type {
+  margin-bottom: 0.4rem;
+}
+
+.payment__address .inputSection span {
+  width: 12rem;
+  text-align: right;
+  margin-right: 1rem;
+}
+
+.payment__address .inputSection input {
+  flex: 1;
+  margin-right: 2rem;
+  padding: 6px;
+}
+
+.payment__section.payment__card {
+  width: 25rem;
+  height: fit-content;
+}
+
+.payment__card .payment__title {
+  margin-bottom: 1.5rem;
+}
+
+.payment__priceContainer {
+  margin-top: 2rem;
+}
