@@ -48,7 +48,7 @@ function Toast({ toast, settoast }) {
   return (
 
     <div className={`position-fixed bottom-0 end-0 p-3 `} style={{ zIndex: 5, cursor: "default" }}>
-      <div className={`toast text-white ${toast.text ? "show" : "hide"} ${toastBackground}`} role="alert" aria-live="assertive" aria-atomic="true">
+      <div className={`toast text-white fw-light ${toast.text ? "show" : "hide"} ${toastBackground}`} role="alert" aria-live="assertive" aria-atomic="true">
         <div className="d-flex">
 
           <div className="toast-body d-flex align-items-center fs-6">

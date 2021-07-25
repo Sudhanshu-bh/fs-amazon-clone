@@ -18,6 +18,7 @@
 .payment__pageTitle a {
   color: #0066c0;
   text-decoration: none;
+  font-weight: 300;
 }
 
 .payment__bottom {
@@ -36,8 +37,7 @@
 }
 
 .payment__address .inputSection {
-  margin-bottom: 1rem;
-  display: flex;
+  margin-bottom: 0.8rem;
   align-items: center;
   color: rgb(46, 46, 46);
 }
@@ -52,10 +52,29 @@
   margin-right: 1rem;
 }
 
+.payment__address .inputSection .inputRow {
+  display: flex;
+  align-items: center;
+}
+
+.payment__address .inputRow:first-of-type {
+  margin-bottom: 5px;
+}
+
 .payment__address .inputSection input {
   flex: 1;
   margin-right: 2rem;
   padding: 6px;
+}
+
+.renderHelper {
+  width: 12rem;
+  margin-right: 1rem;
+}
+
+.renderHelper+div {
+  font-size: 0.75rem;
+  color: tomato;
 }
 
 .payment__section.payment__card {
@@ -68,5 +87,15 @@
 }
 
 .payment__priceContainer {
-  margin-top: 2rem;
+  margin-top: 1.3rem;
+}
+
+.payment__cardError {
+  margin-top: 6px;
+  color: #eb1c26;
+  font-size: 0.8rem;
+}
+
+.payment__totalTag {
+  font-weight: 300;
 }

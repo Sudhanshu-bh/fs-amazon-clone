@@ -11,6 +11,10 @@ import CurrFormat from '../CurrFormat'
 import axios from '../axios'
 import { db } from '../firebase'
 import { EMPTY_CART } from '../actionsList'
+import Toast from '../reusable/Toast'
+
+let shippingName = "", mobile = "", pincode = "", area = "", city = "", state = ""
+let address
 
 function Payment() {
   const history = useHistory()
@@ -20,6 +24,16 @@ function Payment() {
   const stripe = useStripe()
   const elements = useElements()
 
+  const [NameEmpty, setNameEmpty] = useState("")
+  const [MobileEmpty, setMobileEmpty] = useState("")
+  const [PincodeEmpty, setPincodeEmpty] = useState("")
+  const [AreaEmpty, setAreaEmpty] = useState("")
+  const [CityEmpty, setCityEmpty] = useState("")
+  const [StateEmpty, setStateEmpty] = useState("")
+  const [toast, settoast] = useState({})
+
+  const reqMessage = "This field is required."
+
   const [succeeded, setsucceeded] = useState(false)
   const [processing, setprocessing] = useState("")
   const [error, seterror] = useState(null)
@@ -27,14 +41,7 @@ function Payment() {
 
   const [clientSecret, setclientSecret] = useState(true)
 
-  // eslint-disable-next-line
-  let name, mobile, pincode, area, city, state
-  let address
-
-  const updateAddress = () => {
-    address = area + ", " + city + "-" + pincode + ", " + state
-    console.log(address)
-  }
+  const updateAddress = e => address = area + ", " + city + "-" + pincode + ", " + state;
 
   useEffect(() => {
     // generate the special stripe secret which allows us to charge a customer
@@ -52,6 +59,12 @@ function Payment() {
   }, [cart])
 
   const handleSubmit = async (event) => {
+
+    if (shippingName === "" || mobile === "" || pincode === "" || area === "" || city === "" || state === "") {
+      event.preventDefault()
+      settoast({ text: "Please fill all the required fields!", type: "danger" })
+      return
+    }
 
     event.preventDefault()
     setprocessing(true)
@@ -73,7 +86,11 @@ function Payment() {
           cart: cart,
           amount: paymentIntent.amount,
           created: paymentIntent.created,
-          // address: 
+          shippingDetails: {
+            shippingName: shippingName,
+            mobile: mobile,
+            address: address
+          }
         })
 
       setsucceeded(true)
@@ -88,8 +105,8 @@ function Payment() {
   }
 
   const handleChange = e => {
-    setdisabled(e.empty)
     seterror(e.error ? e.error.message : "")
+    setdisabled(e.empty)
   }
 
   return (
@@ -131,28 +148,64 @@ function Payment() {
                 <p>{user?.email}</p>
 
                 <div className="inputSection">
-                  <span>Name : </span>
-                  <input type="text" name="name" onChange={e => name = e.target.value} />
+                  <div className="inputRow">
+                    <span>Name : </span>
+                    <input type="text" name="name" onChange={e => { shippingName = e.target.value; setNameEmpty("") }} onBlur={e => e.target.value === "" && setNameEmpty(reqMessage)} required />
+                  </div>
+                  <div className="inputRow">
+                    <div className="renderHelper"></div>
+                    <div>{NameEmpty}</div>
+                  </div>
                 </div>
                 <div className="inputSection">
-                  <span>Mobile number : </span>
-                  <input type="text" name="mobile" onChange={e => mobile = e.target.value} />
+                  <div className="inputRow">
+                    <span>Mobile number : </span>
+                    <input type="text" name="mobile" onChange={e => { mobile = e.target.value; setMobileEmpty("") }} onBlur={e => e.target.value === "" && setMobileEmpty(reqMessage)} required />
+                  </div>
+                  <div className="inputRow">
+                    <div className="renderHelper"></div>
+                    <div>{MobileEmpty}</div>
+                  </div>
                 </div>
                 <div className="inputSection">
-                  <span>Pincode : </span>
-                  <input type="text" name="pincode" onChange={e => { pincode = e.target.value; updateAddress() }} />
+                  <div className="inputRow">
+                    <span>Pincode : </span>
+                    <input type="text" name="pincode" onChange={e => { pincode = e.target.value; setPincodeEmpty(""); updateAddress(e) }} onBlur={e => e.target.value === "" && setPincodeEmpty(reqMessage)} required />
+                  </div>
+                  <div className="inputRow">
+                    <div className="renderHelper"></div>
+                    <div>{PincodeEmpty}</div>
+                  </div>
                 </div>
                 <div className="inputSection">
-                  <span>Area and Street : </span>
-                  <input type="text" name="area" onChange={e => { area = e.target.value; updateAddress() }} />
+                  <div className="inputRow">
+                    <span>Area and Street : </span>
+                    <input type="text" name="area" onChange={e => { area = e.target.value; setAreaEmpty(""); updateAddress(e) }} onBlur={e => e.target.value === "" && setAreaEmpty(reqMessage)} required />
+                  </div>
+                  <div className="inputRow">
+                    <div className="renderHelper"></div>
+                    <div>{AreaEmpty}</div>
+                  </div>
                 </div>
                 <div className="inputSection">
-                  <span>City/District/Town : </span>
-                  <input type="text" name="city" onChange={e => { city = e.target.value; updateAddress() }} />
+                  <div className="inputRow">
+                    <span>City/District/Town : </span>
+                    <input type="text" name="city" onChange={e => { city = e.target.value; setCityEmpty(""); updateAddress(e) }} onBlur={e => e.target.value === "" && setCityEmpty(reqMessage)} required />
+                  </div>
+                  <div className="inputRow">
+                    <div className="renderHelper"></div>
+                    <div>{CityEmpty}</div>
+                  </div>
                 </div>
                 <div className="inputSection">
-                  <span>State : </span>
-                  <input type="text" name="state" onChange={e => { state = e.target.value; updateAddress() }} />
+                  <div className="inputRow">
+                    <span>State : </span>
+                    <input type="text" name="state" onChange={e => { state = e.target.value; setStateEmpty(""); updateAddress(e) }} onBlur={e => e.target.value === "" && setStateEmpty(reqMessage)} required />
+                  </div>
+                  <div className="inputRow">
+                    <div className="renderHelper"></div>
+                    <div>{StateEmpty}</div>
+                  </div>
                 </div>
 
               </div>
@@ -165,10 +218,11 @@ function Payment() {
 
                 <form onSubmit={handleSubmit}>
                   <CardElement onChange={handleChange} />
+                  <div className="payment__cardError">{error}&nbsp;</div>
 
                   <div className="payment__priceContainer">
                     <h5>
-                      Order Total:
+                      <span className="payment__totalTag">Order Total:</span>
                       <small> ₹</small>
                       <CurrFormat price={getCartTotal(cart)} />
                     </h5>
@@ -179,7 +233,6 @@ function Payment() {
                     </button>
                   </div>
 
-                  {error && <div>{error}</div>}
                 </form>
 
               </div>
@@ -189,6 +242,8 @@ function Payment() {
       </div>
 
       <Footer />
+
+      <Toast toast={toast} settoast={settoast} />
     </>
   )
 }

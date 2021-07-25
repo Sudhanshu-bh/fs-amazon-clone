@@ -1,10 +1,29 @@
 .order__id {
   font-weight: 400;
+  font-size: 1.1rem;
+  font-weight: 300;
 }
 
 .order__date {
+  font-size: 0.85rem;
+  color: rgb(78, 78, 78);
+}
+
+.order__address {
   padding-bottom: 1rem;
   border-bottom: 1px solid lightgray;
+}
+
+.order__address>div {
+  display: flex;
+}
+
+.order__address>div>span {
+  width: 8rem;
+  text-align: right;
+  margin-right: 1rem;
+  color: rgb(78, 78, 78);
+  font-weight: 300;
 }
 
 .order__total {
