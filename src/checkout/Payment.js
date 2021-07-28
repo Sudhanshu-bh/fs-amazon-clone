@@ -21,6 +21,9 @@ function Payment() {
 
   const [{ cart, user }, dispatch] = useStateValue()
 
+  if (cart.length === 0)
+    history.push('/')
+
   const stripe = useStripe()
   const elements = useElements()
 

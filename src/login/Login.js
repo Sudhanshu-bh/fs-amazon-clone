@@ -145,7 +145,7 @@ function Login() {
             <Link to="#">Help</Link>
           </div>
 
-          <span>© 1996-2021, Amazon.com, Inc. or its affiliates</span>
+          <span>© 2021, FS Amazon Clone | All Rights Reserved</span>
         </div>
       </div>
 
