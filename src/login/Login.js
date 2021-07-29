@@ -89,6 +89,7 @@ function Login() {
               <input
                 autoFocus
                 type="email"
+                name="email"
                 onChange={e => updateEmail(e)}
                 value={email}
                 maxLength="100"
@@ -102,6 +103,7 @@ function Login() {
               <input
                 id="login__passwordInput"
                 type="password"
+                name="password"
                 onChange={e => updatePassword(e)}
                 value={password}
                 maxLength="40"

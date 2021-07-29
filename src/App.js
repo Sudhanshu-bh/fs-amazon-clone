@@ -14,6 +14,7 @@ import Signup from './signup/Signup';
 import VerifyEmail from './signup/VerifyEmail';
 import Profile from './profile/Profile';
 import Security from './profile/Security';
+import PageNotFound from './Page404'
 import { SET_USER } from './actionsList';
 
 const promise = loadStripe('pk_test_51J5T7DSIJRW4yvGotVaPhctWXJjjwttRHXMMPaY2gXQYJ7DZ4Hnl7ah6F3AEn0VaM8JkskSlonf3qq0588tDVDmc000if6ulrD');
@@ -40,6 +41,7 @@ function App() {
     })
     // eslint-disable-next-line
   }, [])
+
   return (
     <BrowserRouter>
       <div className="app">
@@ -79,9 +81,12 @@ function App() {
             <VerifyEmail />
           </Route>
 
-          <Route path="/">
+          <Route exact path="/">
             <Home />
           </Route>
+
+          <Route component={PageNotFound} />
+
         </Switch>
 
       </div>
