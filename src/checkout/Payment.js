@@ -103,7 +103,7 @@ function Payment() {
       dispatch({
         type: EMPTY_CART
       })
-      history.replace('/orders')
+      history.replace('/user/orders')
     })
   }
 
@@ -120,7 +120,7 @@ function Payment() {
 
         <h1 className="payment__pageTitle">
           Checkout (
-          <Link to="/checkout">{cart?.length} items</Link>
+          <Link to="/checkout">{cart?.reduce((size, item) => item.quantity + size, 0)} items</Link>
           )
         </h1>
 
@@ -134,9 +134,9 @@ function Payment() {
                 <CartItem
                   id={item.id}
                   title={item.title}
-                  image={item.image}
-                  price={item.price}
-                  rating={item.rating}
+                  image={item.imageUrl}
+                  price={item.sellprice}
+                  rating={parseInt(item.rating)}
                   quantity={item.quantity}
                   hideButtons
                   removeBorder

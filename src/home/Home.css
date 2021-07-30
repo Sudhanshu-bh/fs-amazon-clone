@@ -8,13 +8,11 @@
 
 .home__productsContainer {
   position: relative;
-  z-index: 2;
-}
-
-.home__row {
-  display: flex;
-  z-index: 1;
   margin: 0 0.5rem 0 0.5rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  z-index: 2;
 }
 
 .home__container {

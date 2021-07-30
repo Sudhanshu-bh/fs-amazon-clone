@@ -33,9 +33,9 @@ function Order({ order, number }) {
         <CartItem
           id={item.id}
           title={item.title}
-          image={item.image}
-          price={item.price}
-          rating={item.rating}
+          image={item.imageUrl}
+          price={item.sellprice}
+          rating={parseInt(item.rating)}
           quantity={item.quantity}
           hideButtons
         />

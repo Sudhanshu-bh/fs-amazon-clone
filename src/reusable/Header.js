@@ -53,7 +53,7 @@ function Header() {
               className="header__option header__ddToggle"
               to={user ? "/user" : "/login"}>
               <span className="header__optionLineOne">Hello,
-                {user ? " " + user.displayName : " Sign in"}</span>
+                {user ? " " + user.displayName.split(" ")[0] : " Sign in"}</span>
               <span className="header__optionLineTwo">
                 Account & Lists
               </span>
@@ -69,7 +69,7 @@ function Header() {
 
                   <div className="header__ddList left">
                     <h6>Your Lists</h6>
-                    <Link className="header__ddItem first">{user?.displayName}'s Wish List</Link>
+                    <Link className="header__ddItem first">{user?.displayName.split(" ")[0]}'s Wish List</Link>
                     <Link className="header__ddItem" to="#">Create a Wish List</Link>
                     <Link className="header__ddItem" to="#">Find a Wish List</Link>
 

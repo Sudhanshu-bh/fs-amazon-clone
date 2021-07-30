@@ -38,15 +38,15 @@ function Checkout() {
               <CartItem
                 id={item.id}
                 title={item.title}
-                image={item.image}
-                price={item.price}
-                rating={item.rating}
+                image={item.imageUrl}
+                price={item.sellprice}
+                rating={parseInt(item.rating)}
                 quantity={item.quantity}
               />
             ))}
 
             <div className="checkout__leftSubtotal">
-              Subtotal ({cart.length} items):
+              Subtotal ({cart?.reduce((size, item) => item.quantity + size, 0)} items):
               <small> ₹</small>
               <strong>
                 <CurrFormat price={getCartTotal(cart)} />
