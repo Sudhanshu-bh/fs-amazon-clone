@@ -62,7 +62,7 @@ function Home() {
 
           <div className="home__productsContainer">
             {products?.map((product) => (
-              <Product product={product} />
+              <Product product={product} settoast={settoast} />
             ))}
           </div>
 

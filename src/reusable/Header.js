@@ -6,9 +6,10 @@ import ShoppingCartOutlinedIcon from '@material-ui/icons/ShoppingCartOutlined';
 import { useStateValue } from '../StateProvider';
 import { auth } from '../firebase';
 import Toast from './Toast';
+import { EMPTY_CART } from '../actionsList';
 
 function Header() {
-  const [{ cart, user }] = useStateValue()
+  const [{ cart, user }, dispatch] = useStateValue()
 
   const [blurred, setblurred] = useState("")
   const [toast, settoast] = useState({ text: "", type: "success" })
@@ -16,7 +17,12 @@ function Header() {
   const signOut = () => {
     if (user) {
       auth.signOut()
-        .then(() => { settoast({ text: "Signed out successfully!", type: "success" }) })
+        .then(() => {
+          settoast({ text: "Signed out successfully!", type: "success" })
+          dispatch({
+            type: EMPTY_CART
+          })
+        })
         .catch(error => {
           settoast({ text: "Something went wrong. Please try again!", type: "danger" })
           console.log(error)

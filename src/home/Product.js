@@ -3,16 +3,20 @@ import './Product.css';
 import { useStateValue } from '../StateProvider';
 import CurrFormat from '../CurrFormat';
 import { ADD_TO_CART } from '../actionsList'
+import { auth } from '../firebase';
 
-function Product({ product }) {
+function Product({ product, settoast }) {
 
-  console.log("product: ", product)
   const { id } = product
   const { title, mrp, sellprice, rating, imageUrl } = product.data
   // eslint-disable-next-line
   const [{ user, cart }, dispatch] = useStateValue();
 
   const addToCart = () => {
+    if (auth.currentUser === null) {
+      settoast({ text: "Please login to add items in cart!", type: "danger" })
+      return;
+    }
     dispatch({
       type: ADD_TO_CART,
       item: {
@@ -23,7 +27,8 @@ function Product({ product }) {
         imageUrl: imageUrl,
         rating: rating
       },
-    });
+    })
+    settoast({ text: `"${title.slice(0, 24)}..." item successfully added to cart!`, type: "success" })
   };
 
   return (
