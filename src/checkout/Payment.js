@@ -154,7 +154,7 @@ function Payment() {
                 <div className="inputSection">
                   <div className="inputRow">
                     <span>Name : </span>
-                    <input type="text" name="name" onChange={e => { shippingName = e.target.value; setNameEmpty("") }} onBlur={e => e.target.value === "" && setNameEmpty(reqMessage)} required />
+                    <input type="text" name="name" onChange={e => { shippingName = e.target.value; setNameEmpty("") }} onBlur={e => e.target.value === "" && setNameEmpty(reqMessage)} placeholder="Order reciever's name" required />
                   </div>
                   <div className="inputRow">
                     <div className="renderHelper"></div>
@@ -164,7 +164,7 @@ function Payment() {
                 <div className="inputSection">
                   <div className="inputRow">
                     <span>Mobile number : </span>
-                    <input type="text" name="mobile" onChange={e => { mobile = e.target.value; setMobileEmpty("") }} onBlur={e => e.target.value === "" && setMobileEmpty(reqMessage)} required />
+                    <input type="text" name="mobile" onChange={e => { mobile = e.target.value; setMobileEmpty("") }} onBlur={e => e.target.value === "" && setMobileEmpty(reqMessage)} placeholder="10-digit mobile number" required />
                   </div>
                   <div className="inputRow">
                     <div className="renderHelper"></div>
@@ -174,7 +174,7 @@ function Payment() {
                 <div className="inputSection">
                   <div className="inputRow">
                     <span>Pincode : </span>
-                    <input type="text" name="pincode" onChange={e => { pincode = e.target.value; setPincodeEmpty(""); updateAddress(e) }} onBlur={e => e.target.value === "" && setPincodeEmpty(reqMessage)} required />
+                    <input type="text" name="pincode" onChange={e => { pincode = e.target.value; setPincodeEmpty(""); updateAddress(e) }} onBlur={e => e.target.value === "" && setPincodeEmpty(reqMessage)} placeholder="Pincode" required />
                   </div>
                   <div className="inputRow">
                     <div className="renderHelper"></div>
@@ -184,7 +184,7 @@ function Payment() {
                 <div className="inputSection">
                   <div className="inputRow">
                     <span>Area and Street : </span>
-                    <input type="text" name="area" onChange={e => { area = e.target.value; setAreaEmpty(""); updateAddress(e) }} onBlur={e => e.target.value === "" && setAreaEmpty(reqMessage)} required />
+                    <input type="text" name="area" onChange={e => { area = e.target.value; setAreaEmpty(""); updateAddress(e) }} onBlur={e => e.target.value === "" && setAreaEmpty(reqMessage)} placeholder="Area and street" required />
                   </div>
                   <div className="inputRow">
                     <div className="renderHelper"></div>
@@ -194,7 +194,7 @@ function Payment() {
                 <div className="inputSection">
                   <div className="inputRow">
                     <span>City/District/Town : </span>
-                    <input type="text" name="city" onChange={e => { city = e.target.value; setCityEmpty(""); updateAddress(e) }} onBlur={e => e.target.value === "" && setCityEmpty(reqMessage)} required />
+                    <input type="text" name="city" onChange={e => { city = e.target.value; setCityEmpty(""); updateAddress(e) }} onBlur={e => e.target.value === "" && setCityEmpty(reqMessage)} placeholder="City/district/town" required />
                   </div>
                   <div className="inputRow">
                     <div className="renderHelper"></div>
@@ -204,7 +204,7 @@ function Payment() {
                 <div className="inputSection">
                   <div className="inputRow">
                     <span>State : </span>
-                    <input type="text" name="state" onChange={e => { state = e.target.value; setStateEmpty(""); updateAddress(e) }} onBlur={e => e.target.value === "" && setStateEmpty(reqMessage)} required />
+                    <input type="text" name="state" onChange={e => { state = e.target.value; setStateEmpty(""); updateAddress(e) }} onBlur={e => e.target.value === "" && setStateEmpty(reqMessage)} placeholder="State" required />
                   </div>
                   <div className="inputRow">
                     <div className="renderHelper"></div>

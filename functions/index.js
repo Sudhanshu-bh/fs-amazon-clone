@@ -1,5 +1,5 @@
 const functions = require("firebase-functions");
-const admin = require('firebase-admin')
+const admin = require("firebase-admin")
 const express = require("express");
 const cors = require("cors");
 const stripe = require("stripe")("sk_test_51J5T7DSIJRW4yvGoOXHUf31ORqHOAzqhQra8HkvDTcIUqeOvb6LrUYjjXV6tuW1D1Kg4e0Op5bxaB9yR51PwhrlY00ApdNsGxR")
