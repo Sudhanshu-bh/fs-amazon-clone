@@ -89,7 +89,7 @@
   margin-top: 1rem;
 }
 
-.footer__rowLast a {
+.footer__rowLast a, .footer__rowLast .disclaimer {
   padding: 0.5rem;
   color: #DDD;
   text-decoration: none;

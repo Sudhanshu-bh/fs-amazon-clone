@@ -142,11 +142,9 @@ function Footer() {
           <Link to="#">Conditions of Use & Sale</Link>
           <Link to="#">Privacy Notice</Link>
           <Link to="#">&copy; 2021, Amazon Clone, by Sudhanshu Bhardwaj</Link>
+					<div className='disclaimer'>This website is made for educational purposes only.</div>
         </div>
 
-        {/* <strong>Full Stack Amazon Clone</strong>
-        <small> made by </small>
-        <strong>Sudhanshu Bhardwaj</strong> */}
       </div>
     </footer >
   )
